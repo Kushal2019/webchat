@@ -3,7 +3,7 @@ include('../connect.php');
 
   $frist=$_POST['frist'];
   $last=$_POST['last'];
-  $name=$frist.$last;
+  $name=$frist." ".$last;
   $phone=$_POST['phone'];
   $email=$_POST['email'];
   $pass=md5($_POST['pas']); 
