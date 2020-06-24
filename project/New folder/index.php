@@ -113,7 +113,7 @@ body, html {
     <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: bcaprogramup@gmail.com</p>
     <br>
     <div id="msgshow" name="msgshow" style="color:red;"></div><br>
-    <form method="post">
+    <form method="post" action="../ActionPages/indexemail.php">
       <p><input class="w3-input w3-border" type="text" placeholder="Name" name="inputFirstName" id="inputFirstName" ></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Email" name="inputEmailAddress" id="inputEmailAddress"></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Subject" name="Subject" id="Subject"></p>
