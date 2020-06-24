@@ -160,7 +160,7 @@ if(isset($_GET['msg']))
                      if(document.getElementById("inputveri").value!=p)
                      {
                       document.getElementById("cdmsg").innerHTML="";
-                        document.getElementById("msg1").innerHTML="Worng Verification Code";
+                        document.getElementById("msg1").innerHTML="Worng Verification Code ";
                  
                       $("#myModal2").modal();
                       return false;

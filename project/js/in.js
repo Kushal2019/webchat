@@ -1,27 +1,33 @@
-function check()
-{
-	alert("rt");
-	 if(document.getElementById("inputFirstName").value=="")   
+ function check()
+{ 
+   if(document.getElementById("inputFirstName").value=="")   
     {
-        document.getElementById("msg1").innerHTML="Plese Enter The first Name";
-        document.getElementById("bt").setAttribute("onclick", "javascript:document.getElementById('inputFirstName').focus();");
-        document.getElementById("bt1").setAttribute("onclick", "javascript:document.getElementById('inputFirstName').focus();");
-        $("#myModal2").modal();
+        document.getElementById("msgshow").innerHTML="Plese Enter The first Name";
         return false;
     }
-    else 
+    if(document.getElementById("inputEmailAddress").value=="")
     {
-        //alert('r');
-            var letters =/^[A-Za-z]+$/;
-        if(!document.getElementById("inputFirstName").value.match(letters))   
-        {
-            document.getElementById("msg1").innerHTML="Please input alphabet characters only";
-            document.getElementById("bt").setAttribute("onclick", "javascript:document.getElementById('inputFirstName').focus();");
-            document.getElementById("bt1").setAttribute("onclick", "javascript:document.getElementById('inputFirstName').focus();");
-            $("#myModal2").modal();
-            return false;
-           // alert("p");
-        }
-
+        document.getElementById("msgshow").innerHTML="Plese Enter The Email Id";
+        return false;
+        
+    }
+    else
+    {
+       let field=document.getElementById("inputEmailAddress").value;
+            if(!((field.indexOf(".") > 0) && (field.indexOf("@") > 0)) || /[^a-zA-Z0-9.@_-]/.test(field))        
+            {
+              document.getElementById("msgshow").innerHTML="Plese the Valid Email Id";
+              return false; 
+            }
+    }
+    if(document.getElementById("Subject").value=="")
+    {
+        document.getElementById("msgshow").innerHTML="Plese Enter The Subject";
+        return false;
+    }
+    if(document.getElementById("Message").value=="")
+    {
+       document.getElementById("msgshow").innerHTML="Plese Enter The Messege Body";
+        return false;
     }
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<head>
 <title>Web chat</title>
  <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +10,8 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
 
-<script src="../js/in.js"></script>
+
+<script type="text/javascript" src="../js/in.js"></script>
  <link href="css/style.css" rel="stylesheet" />
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
@@ -31,6 +33,7 @@ body, html {
   padding: 16px;
 }
 </style>
+</head>
 <body>
 
 <!-- Navbar (sit on top) -->
@@ -109,16 +112,13 @@ body, html {
     <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +91 8436993268</p>
     <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: bcaprogramup@gmail.com</p>
     <br>
-    <form action="" target="_blank">
-      <p><input class="w3-input w3-border" type="text" placeholder="Name" name="inputFirstName" ></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Email" name="inputEmailAddress"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Subject" name="Subject"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Message" name="Message" onclick="return check()"></p>
-      <p>
-        <button class="w3-button w3-black" type="submit" onclick="return check()">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-      </p>
+    <div id="msgshow" name="msgshow" style="color:red;"></div><br>
+    <form method="post">
+      <p><input class="w3-input w3-border" type="text" placeholder="Name" name="inputFirstName" id="inputFirstName" ></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Email" name="inputEmailAddress" id="inputEmailAddress"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Subject" name="Subject" id="Subject"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Message" name="Message" id="Message"></p>
+        <input type="submit" class="w3-button w3-black" onclick="return check()" value="SEND MESSAGE" name="sub" >
     </form>
     <!-- Image of location/map -->
    
@@ -128,31 +128,14 @@ body, html {
 <!-- Footer -->
 
   <a href="#home" class="w3-button w3-light-grey" style="margin:right;" ><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-<div id="layoutAuthentication_footer">
+
                <?php
                include('../pagesfile/footer.php');
                ?>
-            </div>
+  
 
-        <div class="modal fade" id="myModal2" role="dialog">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          
-          <h5 class="modal-title"><i class="fa fa-warning" style="font-size:20px;color:red"></i> Warning</h5>
-          <button type="button" class="close" data-dismiss="modal" id="bt1" style="color:red;">&times;</button>
-        </div>
-        <div class="modal-body">
-          <p id="msg1" style="color:red;">Plese Enter The First Name </p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="bt" onclick="javascript:document.getElementById('inputFirstName').focus();" style="color:red;">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
- <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+
 <script>
 // Modal Image Gallery
 function onClick(element) {
@@ -179,6 +162,9 @@ function w3_close() {
     mySidebar.style.display = "none";
 }
 </script>
-
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
