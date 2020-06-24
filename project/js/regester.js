@@ -52,6 +52,30 @@ function check()
         $("#myModal2").modal();
         return false;
     }
+    else
+    {
+         var letters = /^[0-9]+$/;
+        if(!document.getElementById("inputMobile").value.match(letters))
+        {
+            document.getElementById("msg1").innerHTML="Please input number characters only";
+            document.getElementById("bt").setAttribute("onclick", "javascript:document.getElementById('inputMobile').focus();");
+            document.getElementById("bt1").setAttribute("onclick", "javascript:document.getElementById('inputMobile').focus();");
+            $("#myModal2").modal();
+            return false;
+        }
+       else
+       {
+          //var letters = /^[0-9]+$/;
+        if(document.getElementById("inputMobile").value.length!=10)
+        {
+            document.getElementById("msg1").innerHTML="Please input 10 digits only";
+            document.getElementById("bt").setAttribute("onclick", "javascript:document.getElementById('inputMobile').focus();");
+            document.getElementById("bt1").setAttribute("onclick", "javascript:document.getElementById('inputMobile').focus();");
+            $("#myModal2").modal();
+            return false;
+        }
+       }
+    }
     if(document.getElementById("inputEmailAddress").value=="")
     {
         document.getElementById("msg1").innerHTML="Plese Enter The Email";
