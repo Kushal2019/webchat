@@ -54,7 +54,7 @@ if(isset($_GET['msg']))
                                                     <div class="form-group"><label class="small mb-1" for="inputLastName">Last Name</label><input class="form-control py-4" id="inputLastName" type="text" placeholder="Enter last name" name="last" /></div>
                                                 </div>
                                                  <div class="col-md-6">
-                                                    <div class="form-group"><label class="small mb-1" for="inputMobile">Mobile Number</label><input class="form-control py-4" id="inputMobile" type="text" placeholder="Enter Mobile Number" name="phone"  maxlength="10" /></div>
+                                                    <div class="form-group"><label class="small mb-1" for="inputMobile">Mobile Number</label><input class="form-control py-4" id="inputMobile" type="text" placeholder="Enter Mobile Number" name="phone"  maxlength="10"  onblur="ckeckephone(this.value)"/></div>
                                                 </div>
                                                  <div class="col-md-6">
                                                       <div class="form-group"><label class="small mb-1" for="inputEmailAddress">Email</label><input class="form-control py-4" id="inputEmailAddress" type="text" aria-describedby="emailHelp" placeholder="Enter email address" name="email" onblur="ckeckemail(this.value)" /></div>
@@ -130,15 +130,18 @@ if(isset($_GET['msg']))
                  
                 $("#myModal2").modal();
               }
-              if(result=="2")
+              else if(result=="2")
               { 
+                document.getElementById("cdmsg").innerHTML="";
                 document.getElementById("msg1").innerHTML="<font color='red'>your mail id invalid</font>";
                 
                 $("#myModal2").modal();
               }
-              
+              else
+              {
                 sessionStorage.setItem("vc", result);
                 $( "#cdmsg" ).html("We send Verify Code your email.");
+              }
             
             }});
 
@@ -173,7 +176,28 @@ if(isset($_GET['msg']))
                      }
 
             }
+
         }
+        function ckeckephone(ph)
+            {
+              $.ajax({
+             url: "ActionPages/Chakphonenumber.php", 
+              //Session["email"]=str;
+              type:"post",
+              data:{id:ph},
+              success: function(result){
+               
+                if(result=="1")
+              {
+                  document.getElementById("msg1").innerHTML="Your Mobile Number already exits";
+                  document.getElementById("bt").setAttribute("onclick", "javascript:document.getElementById('inputMobile').focus();");
+                   document.getElementById("bt1").setAttribute("onclick", "javascript:document.getElementById('inputMobile').focus();");
+                 $("#myModal2").modal();
+                 return false;
+       }
+              }
+              });
+            }
       </script>  
        
     </body>
