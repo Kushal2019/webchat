@@ -7,15 +7,15 @@ $sql="select * from user_detalis where email='$email'";
 if($d=mysqli_fetch_array(mysqli_query($con,$sql)))
 {
 	echo "2";
-// Account details
+//Account details
 	//echo $d[2];
-/*
+
 ob_start();
 $apiKey = urlencode('zOGVFtsV3I0-ssMOxijLKbuyxhmxK3NexLV63pNoM0');
 // Message details
 $numbers = $d[2];
 $sender = urlencode('TXTLCL');
-$message = rawurlencode('This is your Message <br>password your= ');
+$message = rawurlencode('This is your Message password your='.$d['password']);
  
 //$message = $d[4];
 
@@ -32,7 +32,7 @@ $response = curl_exec($ch);
 curl_close($ch);
 // Process your response here
 ob_clean();
-echo $response;*/s
+echo $response;
 }
 else
 {
