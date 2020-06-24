@@ -1,5 +1,6 @@
 <!DOCTYPE html> 
 <?php
+session_start();
 $val="";
 if(isset($_GET['msg']))
 {
@@ -72,7 +73,7 @@ if(isset($_GET['msg']))
                                                      <div class="form-group"><label class="small mb-1" for="inputProfession">Profession(optional)</label><input class="form-control py-4" id="inputProfession" type="text" placeholder="Enter Profession" name="prof"  /></div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                     <div class="form-group"><label class="small mb-1" for="inputveri">verification code</label><input class="form-control py-4" id="inputveri" type="text" placeholder="Enter verification code" name=""  /></div>
+                                                     <div class="form-group"><label class="small mb-1" for="inputveri">verification code <div id='cdmsg' style="color:red;"></div></label><input class="form-control py-4" id="inputveri" type="text" placeholder="Enter verification code" name="" onblur="return checkvcode()"  /></div>
                                                 </div>
                                             </div>
                                             <center><div><input type="submit" class="btn btn-primary" onclick="return check()" value="Create Account" name="sub" ></div></center>
@@ -121,24 +122,57 @@ if(isset($_GET['msg']))
               data:{id:str},
               success: function(result){ 
                // alert(str);
-              alert (result);
+             // alert (result);
                //document.cookie=veifi+''
               if(result=="1")
               { 
                 document.getElementById("msg1").innerHTML="chak your email id <br> your  ";
-                  document.getElementById("bt").setAttribute("onclick", "javascript:document.getElementById('inputEmailAddress').focus();");
-            document.getElementById("bt1").setAttribute("onclick", "javascript:document.getElementById('inputEmailAddress').focus();");
+                 
                 $("#myModal2").modal();
               }
               if(result=="2")
               { 
                 document.getElementById("msg1").innerHTML="<font color='red'>your mail id invalid</font>";
-                  document.getElementById("bt").setAttribute("onclick", "javascript:document.getElementById('inputEmailAddress').focus();");
-            document.getElementById("bt1").setAttribute("onclick", "javascript:document.getElementById('inputEmailAddress').focus();");
+                
                 $("#myModal2").modal();
               }
+              
+                sessionStorage.setItem("vc", result);
+                $( "#cdmsg" ).html("We send Verify Code your email.");
+            
             }});
 
+        }
+       function checkvcode(){
+        var p=sessionStorage.getItem("vc");
+           if(document.getElementById("inputveri").value=="")
+            {
+
+                 document.getElementById("msg1").innerHTML="Enter the Verification Code";
+                 
+                $("#myModal2").modal();
+                return false;
+            }
+            else
+            {
+
+              
+                     if(document.getElementById("inputveri").value!=p)
+                     {
+                      document.getElementById("cdmsg").innerHTML="";
+                        document.getElementById("msg1").innerHTML="Worng Verification Code";
+                 
+                      $("#myModal2").modal();
+                      return false;
+                     }
+                     else
+                     {
+                     // alert("hi");
+                      document.getElementById("cdmsg").style.color = "green";
+                      document.getElementById("cdmsg").innerHTML="Verify success..";
+                     }
+
+            }
         }
       </script>  
        

@@ -54,10 +54,10 @@ try {
    // header('location:login.php')
         
     	ob_clean();
-    	echo "$str";
+    	
     	$_COOKIE['veri']=$str;
         $_SESSION['veri']=$str;
-    	//echo $_COOKIES['veri'];
+    	echo $str;
 }
 } catch (Exception $e) {
    // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

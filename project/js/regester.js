@@ -96,8 +96,7 @@ function check()
         $("#myModal2").modal();
         return false;
     }
-    var p= '<%= Session["veri"] %>';
-    alert("JHDFHJLF:"+p);
+   
     if(document.getElementById("inputveri").value=="")
     {
          document.getElementById("msg1").innerHTML="Enter the Verification Code";
@@ -106,15 +105,7 @@ function check()
         $("#myModal2").modal();
         return false;
     }
-    
-    if(document.getElementById("inputveri").value!=p)
-    {
-         document.getElementById("msg1").innerHTML="PassWord Dose Not Match";
-         document.getElementById("bt").setAttribute("onclick", "javascript:document.getElementById('inputveri').focus();");
-         document.getElementById("bt1").setAttribute("onclick", "javascript:document.getElementById('inputveri').focus();");
-        $("#myModal2").modal();
-        return false;
-    }
+   
 
 }
 
