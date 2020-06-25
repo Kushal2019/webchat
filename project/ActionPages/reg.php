@@ -6,7 +6,7 @@ include('../connect.php');
   $name=$frist." ".$last;
   $phone=$_POST['phone'];
   $email=$_POST['email'];
-  $pass=md5($_POST['pas']); 
+  $pass=$_POST['pas']; 
   $prof=$_POST['prof'];
   $sql="insert into user_detalis(name,mobile,email,password,profession,user_pic)values('$name','$phone','$email','$pass','$prof','upload/user_pic/userprofile.jpg')";
   if(mysqli_query($con,$sql))
