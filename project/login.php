@@ -78,6 +78,7 @@
             </div>
             <div id="layoutAuthentication_footer">
                <?php
+               
                include('pagesfile/footer.php');
                ?>
             </div>

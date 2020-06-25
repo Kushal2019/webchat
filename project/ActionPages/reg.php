@@ -14,6 +14,8 @@ include('../connect.php');
     $sql1="insert into login_detais(username,password,type,status,activelog,fristtime,lasttime)values('$email','$pass','USER','1','offline','00.00','00.00')";
     if(mysqli_query($con,$sql1))
     {
+      setcookie("username","", time() -3600, "/");
+      setcookie("password","", time() -3600, "/");
       header('location:../login.php');
     }
     else

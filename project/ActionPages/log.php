@@ -16,8 +16,8 @@ if(isset($_POST['call']))
             }
             else
             {
-                setcookie("username", "", time() - 3600); 
-                setcookie("password", "", time() - 3600); 
+                setcookie("username","", time() -3600, "/");
+                setcookie("password","", time() -3600, "/");
             }
 
             header('location:../user/index.php');
