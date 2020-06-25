@@ -6,10 +6,20 @@ if(isset($_POST['call']))
     $email=$_POST['email'];
     $pass=md5($_POST['pass']);
     $sql="select * from login_detais where username='$email' AND password='$pass'";
-    
-        if(mysqli_fetch_array(mysqli_query($con,$sql)))
+    if(mysqli_fetch_array(mysqli_query($con,$sql)))
         {
             $_SESSION['email']=$email;
+            if(isset($_POST['rempas']))
+            {
+                setcookie("username", $email, time() + (86400 * 30), "/");
+                 setcookie("password", $pass, time() + (86400 * 30), "/");
+            }
+            else
+            {
+                setcookie("username", "", time() - 3600); 
+                setcookie("password", "", time() - 3600); 
+            }
+
             header('location:../user/index.php');
         }
     

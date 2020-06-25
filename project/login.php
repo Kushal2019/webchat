@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -47,11 +47,22 @@
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
                                         <form action="ActionPages/log.php" method="post" >
-                                            <div class="form-group"><label class="small mb-1" for="inputEmailAddress">Email</label><input class="form-control py-4" id="inputEmailAddress" type="email" placeholder="Enter email address" name="email" /></div>
+                                            <div class="form-group"><label class="small mb-1" for="inputEmailAddress">Email</label><input class="form-control py-4" id="inputEmailAddress" type="email" placeholder="Enter email address" name="email" value="<?php 
+                                            if(isset($_COOKIE['username']))
+                                            {
+                                                echo $_COOKIE['username'];
+                                            }
+                                            ?>" /></div>
                                            <!-- <div class="form-group"><label class="small mb-1" for="inputPassword">Password</label><input class="form-control py-4" id="inputPassword" type="password" name="pass" placeholder="Enter password"/></div>
-                                           --><div class="form-group"><label class="small mb-1" for="inputPassword">Password</label><input class="form-control py-4" id="inputPassword" type="password" name="pass" placeholder="Enter password" onmousedown="this.type='text'" onmouseup="this.type='password'" onmousemove="this.type='password'"  name="pass"/></div>
+                                           --><div class="form-group"><label class="small mb-1" for="inputPassword">Password</label><input class="form-control py-4" id="inputPassword" type="password" name="pass" placeholder="Enter password" onmousedown="this.type='text'" onmouseup="this.type='password'" onmousemove="this.type='password'"  name="pass" 
+                                            value="<?php 
+                                            if(isset($_COOKIE['password']))
+                                            {
+                                                echo $_COOKIE['password'];
+                                            }
+                                            ?>"/></div>
                                             <div class="form-group">
-                                                <div class="custom-control custom-checkbox"><input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" /><label class="custom-control-label" for="rememberPasswordCheck">Remember password</label></div>
+                                                <div class="custom-control custom-checkbox"><input class="custom-control-input" id="rememberPasswordCheck" type="checkbox"  name="rempas"/><label class="custom-control-label" for="rememberPasswordCheck">Remember password</label></div>
                                             </div>
                                             <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0"><a class="small" href="password.php">Forgot Password?</a><input type="submit"class="btn btn-primary"  onclick="return login()" value="Login"  name="call"></div>
                                         </form>
