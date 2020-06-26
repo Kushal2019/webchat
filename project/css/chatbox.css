@@ -47,6 +47,7 @@
 {
     display: inline-block;
     max-width: 80%;
+    max-height:auto;
     background-color: blue;
     border-radius: 12.5px;
     padding: 15px;

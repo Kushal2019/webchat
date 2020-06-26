@@ -66,7 +66,7 @@
                                                 <label>User Id</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Kshiti123</p>
+                                                <p></p>
                                             </div>
                                         </div>
                                         <div class="row">
