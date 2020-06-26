@@ -24,7 +24,7 @@
                     <ul class="chat">
                         <li class="agent clearfix">
                             <span class="chat-img left clearfix mx-2">
-                                <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="Agent" class="img-circle" />
+                                <img src="../upload/user_pic/userprofile.jpg" alt="Agent" class="img-circle" />
                             </span>
                             <div class="chat-body clearfix">
                                 <div class="header clearfix">
