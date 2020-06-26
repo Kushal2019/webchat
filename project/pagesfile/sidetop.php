@@ -1,5 +1,6 @@
 <?php 
 require '../ActionPages/UserallData.php';
+$data=user_detalis($_SESSION['email']);
 ?> 
  <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
@@ -9,7 +10,7 @@ require '../ActionPages/UserallData.php';
                             <div class="sb-sidenav-menu-heading">my profile</div>
                             <a class="nav-link" href="index.html"
                                 ><div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                <?=username(1);?></a
+                                <?=$data['name']?></a
                             >
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
