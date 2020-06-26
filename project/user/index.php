@@ -64,7 +64,7 @@
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Change Security</a>
                                 </li>
                             </ul>
                         </div>
@@ -79,103 +79,96 @@
                     </div>
                     <div class="col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">
-                            <form method="post" action="../ActionPages/user_detalis_up.php">
+                            
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        
+                                        <form method="post" action="../ActionPages/user_detalis_up.php">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-2">
                                                 <label>Name</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><input type="text" name="name" id="ip1" class="change" value="<?=$data['name']?>" disabled></p>
+                                                <p><input type="text" name="name" id="ip1" class="change" value="<?=$data['name']?>" disabled style="border: none;"></p>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-2">
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><input type="email" name="email" value="<?=$data['email']?>" disabled></p>
+                                                <p><input type="email" name="email" value="<?=$data['email']?>" disabled style="border: none;"></p>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-2">
                                                 <label>Phone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><input type="number" name="phone" id="ip2" class="change" value="<?=$data['mobile']?>" disabled></p>
+                                                <p><input type="number" name="phone" id="ip2" class="change" value="<?=$data['mobile']?>" disabled style="border: none;"></p>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-2">
                                                 <label>Profession</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><input type="text" name="pro" id="ip3" class="change" value="<?=$data['profession']?>" disabled></p>
+                                                <p><input type="text" name="pro" id="ip3" class="change" value="<?=$data['profession']?>" disabled style="border: none;"></p>
                                             </div>
                                         </div>
                                          <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-2">
                                                
                                             </div>
                                             <div class="col-md-6">
-                                                <p><input type="submit" name="up" value="Update" id="update" style="display: none;" onclick="return check1()"></p>
+                                                <p><input type="submit" name="up" value="Update" id="update" class="btn btn-success" style="display: none;" onclick="return check1()"></p>
                                             </div>
                                         </div>
+                                    </form>
                             </div>
-                        </form>
+                    
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <form>
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Experience</label>
+                                            <div class="col-md-3">
+                                                <label>Old Passwod </label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Expert</p>
+                                                <p><input type="text" name="pro" id="ip3" class="change"></p>
+                                            </div>
+                                        </div>
+
+                                         <div class="row">
+                                            <div class="col-md-3">
+                                                <label>New Passwod </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><input type="text" name="pro" id="ip3" class="change"></p>
+                                            </div>
+                                        </div>
+
+                                         <div class="row">
+                                            <div class="col-md-3">
+                                                <label>Confirm Passwod </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><input type="text" name="pro" id="ip3" class="change"></p>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Hourly Rate</label>
+                                            <div class="col-md-3">
+                                               
                                             </div>
                                             <div class="col-md-6">
-                                                <p>10$/hr</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Total Projects</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>230</p>
+                                                <p><button type="button" class="btn btn-success">Change</button>
+                                                <button type="button" class="btn btn-danger">Reset</button>
+                                                </p>
+
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>English Level</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Expert</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Availability</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>6 months</p>
-                                            </div>
-                                        </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <label>Your Bio</label><br/>
-                                        <p>Your detail description</p>
-                                    </div>
-                                </div>
+                                </form>                  
                             </div>
                         </div>
                     </div>
-                </div>
-            </form>           
+                </div>          
         </div>
      </main>
 
