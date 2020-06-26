@@ -11,6 +11,7 @@
         <link href="../css/usermyprofile.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="../js/user.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <?php
@@ -51,7 +52,7 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                        <button class="profile-edit-btn"  id="bt" onclick="return enable();">Edit Profile </button>
                     </div>
                 </div>
                 <div class="row">
@@ -61,20 +62,13 @@
                     <div class="col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>User Id</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p></p>
-                                            </div>
-                                        </div>
+                                        
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Name</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Kshiti Ghelani</p>
+                                                <p><input type="text" name="name" id="ip1" class="change" value="soumen" disabled></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -82,7 +76,7 @@
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>kshitighelani@gmail.com</p>
+                                                <p><input type="email" name="email" value="soumendolui077@gmail.com" disabled></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -90,7 +84,7 @@
                                                 <label>Phone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>123 456 7890</p>
+                                                <p><input type="number" name="name" id="ip2" class="change" value="9733699773" disabled></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -98,7 +92,15 @@
                                                 <label>Profession</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Web Developer and Designer</p>
+                                                <p><input type="text" name="name" id="ip3" class="change" value="student" disabled></p>
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                            <div class="col-md-6">
+                                               
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><input type="submit" name="ud" value="Update" id="update" style="display: none;"></p>
                                             </div>
                                         </div>
                             </div>
