@@ -43,10 +43,12 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="profile-img">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                            <div id='uploadimg'>
+                            <img src="../<?=$data['user_pic']?>" alt=""/>
+                        </div>
                             <div class="file btn btn-lg btn-primary" >
                                 Change Photo
-                                <input type="file" name="file" accept="" />
+                                <input type="file" name="file" id="file" accept="" />
                             </div>
                         </div>
                     </div>
@@ -132,7 +134,7 @@
                                                 <label>Old Passwod </label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><input type="text" name="pro" id="ip3" class="change"></p>
+                                                <p><input type="text" name="pro" id="ip5" class="change"></p>
                                             </div>
                                         </div>
 
@@ -141,7 +143,7 @@
                                                 <label>New Passwod </label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><input type="text" name="pro" id="ip3" class="change"></p>
+                                                <p><input type="text" name="pro" id="ip6" class="change"></p>
                                             </div>
                                         </div>
 
@@ -150,7 +152,7 @@
                                                 <label>Confirm Passwod </label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><input type="text" name="pro" id="ip3" class="change"></p>
+                                                <p><input type="text" name="pro" id="ip7" class="change"></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -158,7 +160,7 @@
                                                
                                             </div>
                                             <div class="col-md-6">
-                                                <p><button type="button" class="btn btn-success">Change</button>
+                                                <p><button type="button" class="btn btn-success" onclick="return check2();">Change</button>
                                                 <button type="button" class="btn btn-danger">Reset</button>
                                                 </p>
 
@@ -188,7 +190,7 @@
           <p id="msg1" style="color:red;">Plese Enter The First Name </p>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="bt" onclick="javascript:document.getElementById('inputEmailAddress').focus();" style="color:red;">Close</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="bt2" style="color:red;">Close</button>
         </div>
       </div>
     </div>
@@ -197,6 +199,43 @@
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="../js/scripts.js"></script>
-       
+        <script>
+            $(document).ready(function(){
+             $(document).on('change', '#file', function(){
+              var name = document.getElementById("file").files[0].name;
+              var form_data = new FormData();
+              var ext = name.split('.').pop().toLowerCase();
+              if(jQuery.inArray(ext, ['png','jpg','jpeg']) == -1) 
+              {
+               document.getElementById("msg1").innerHTML="Invalid Image File<br>(accept only: jpg,jpeg,png)";
+                 $("#myModal2").modal();
+              }
+              else
+              {
+
+                form_data.append("file", document.getElementById('file').files[0]);
+               $.ajax({
+                url:"upload.php",
+                method:"POST",
+                data: form_data,
+                contentType: false,
+                cache: false,
+                processData: false,
+                beforeSend:function(){
+                 $('#uploadimg').html("Image Uploading.....<br><br><br>");
+                },   
+                success:function(data)
+                {
+                 $('#uploadimg').html(data);
+                }
+               });
+              }
+
+          });
+         });
+        </script>
+
+
+
     </body>
 </html>
