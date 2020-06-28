@@ -144,7 +144,7 @@ if(isset($_GET['msg']))
               }
             
             }});
-
+ 
         }
        function checkvcode(){
         var p=sessionStorage.getItem("vc");
