@@ -128,7 +128,7 @@
                             </div>
                     
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <form method="post" >
+                                <form method="post" action="../ActionPages/userchagepassword.php">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <label>Old Passwod </label>
@@ -152,7 +152,7 @@
                                                 <label>Confirm Passwod </label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><input type="text" name="ch" id="ip7" class="change"></p>
+                                                <p><input type="text" name="" id="ip7" class="change"></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -160,7 +160,7 @@
                                                
                                             </div>
                                             <div class="col-md-6">
-                                                <p><button type="button" class="btn btn-success" onclick="return check2();">Change</button>
+                                                <p><button type="submit" class="btn btn-success" name="ch" onclick="return check2();">Change</button>
                                                 <button type="button" class="btn btn-danger">Reset</button>
                                                 </p>
 
