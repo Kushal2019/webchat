@@ -227,7 +227,10 @@
                 success:function(data)
                 {
                  $('#uploadimg').html(data);
-                
+                 var auto_refresh = setInterval(
+function () {
+    $('#uploadimg').load('profliepic.php');
+}, 1000);
                 }
                });
               }
