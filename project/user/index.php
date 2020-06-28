@@ -44,7 +44,7 @@
                     <div class="col-md-3">
                         <div class="profile-img">
                             <div id='uploadimg'>
-                            <img src="../<?=$data['user_pic']?>" alt=""/>
+                            <img src="../upload/user_pic/<?=$data['user_pic']?>" alt=""/>
                         </div>
                             <div class="file btn btn-lg btn-primary" >
                                 Change Photo
@@ -215,7 +215,7 @@
 
                 form_data.append("file", document.getElementById('file').files[0]);
                $.ajax({
-                url:"upload.php",
+                url:"../ActionPages/user_pic_upload.php",
                 method:"POST",
                 data: form_data,
                 contentType: false,
@@ -227,6 +227,7 @@
                 success:function(data)
                 {
                  $('#uploadimg').html(data);
+                
                 }
                });
               }
