@@ -2,19 +2,15 @@
 session_start();
 include('../connect.php');
 $email=$_SESSION['email'];
-$pass
-	$sql="select * from user_detalis where email='$email' and password='$pass'";
-	if(!mysqli_fetch_array(mysqli_query($con,$sql)))
-	{
-		echo 1;
-		$_SESSION['$email1']=$email;
-	}
+$pass=$_POST['old'];
+$newpass=$_POST['new'];
 if(isset($_POST['ch']))
-	{
-		$newpass=$_POST['new'];
-		$sql="update user_detalis set password='$newpass' where email='$email'";
-		if(mysqli_query($con,$sql))
+{
+		$sql="select  * from user_detalis where password='$pass' and email='$email'";
+		if(mysqli_fetch_array(mysqli_query($con,$sql)))
 		{
+			$sql="update user_detalis set password='$newpass' where email='$email'";
+			mysqli_query($con,$sql);
 			$sql="update login_detais set password='$newpass' where username='$email'";
 			if(mysqli_query($con,$sql))
 			{
@@ -23,9 +19,9 @@ if(isset($_POST['ch']))
 		}
 		else
 		{
-			echo 2;
+			header('location:../user/index.php?msg=1');
 		}
 
-	}	
+}	
 
 	?>

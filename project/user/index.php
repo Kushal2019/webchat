@@ -23,11 +23,23 @@
         <script type="text/javascript">
         function check_up_ero(msg)
         {
+            if(msg=='2')
+            {
+                $("#myModal23").modal();
+              window.setTimeout(function() {
+                 
+
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+       $(".alert").show();
+    });
+}, 4000);
+            }
             if(msg=='1')
             {
-               document.getElementById("msg1").innerHTML="update ";
+               document.getElementById("msg1").innerHTML="pasword not match";
                 $("#myModal2").modal();
-                return false;
+                return false;  
             }
         }
       </script>
@@ -134,7 +146,7 @@
                                                 <label>Old Passwod </label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><input type="text" name="old" id="ip5" class="change" onblur="checkpass(this.value);"></p>
+                                                <p><input type="text" name="old" id="ip5" class="change"></p>
                                             </div>
                                         </div>
 
@@ -172,7 +184,16 @@
                     </div>
                 </div>          
         </div>
+    <div class="modal fade" id="myModal23" role="dialog">
+    <div class="modal-dialog modal-sm">
+         <div class="alert alert-success" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Success!</strong> update!
+        </div>
+    </div>
+  </div>
      </main>
+     
 
         <?php
             include("../pagesfile/footer.php");
@@ -234,19 +255,7 @@
 
           });
          });
-        function checkpass(pass)
-        {
-            $.ajax({
-                url:"../ActionPages/userchagepassword.php",
-                type:"post",
-                data:{id:pass},
-                success: function(result)
-                {
-                   alert(result);
-                }
-
-            });
-        }
+        
         </script>
      </body>
 </html>
