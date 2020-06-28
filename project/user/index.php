@@ -128,13 +128,13 @@
                             </div>
                     
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <form>
+                                <form method="post" >
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <label>Old Passwod </label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><input type="text" name="pro" id="ip5" class="change"></p>
+                                                <p><input type="text" name="old" id="ip5" class="change" onblur="checkpass(this.value);"></p>
                                             </div>
                                         </div>
 
@@ -143,7 +143,7 @@
                                                 <label>New Passwod </label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><input type="text" name="pro" id="ip6" class="change"></p>
+                                                <p><input type="text" name="new" id="ip6" class="change"></p>
                                             </div>
                                         </div>
 
@@ -152,7 +152,7 @@
                                                 <label>Confirm Passwod </label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><input type="text" name="pro" id="ip7" class="change"></p>
+                                                <p><input type="text" name="ch" id="ip7" class="change"></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -237,9 +237,19 @@ function () {
 
           });
          });
+        function checkpass(pass)
+        {
+            $.ajax({
+                url:"../ActionPages/userchagepassword.php",
+                type:"post",
+                data:{id:pass},
+                success: function(result)
+                {
+                   alert(result);
+                }
+
+            });
+        }
         </script>
-
-
-
-    </body>
+     </body>
 </html>
