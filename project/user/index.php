@@ -188,7 +188,7 @@
     <div class="modal-dialog modal-sm">
          <div class="alert alert-success" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>Success!</strong> update!
+        <strong>Success!</strong> update !
         </div>
     </div>
   </div>
