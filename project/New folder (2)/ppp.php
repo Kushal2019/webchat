@@ -20,8 +20,9 @@
      <div id="layoutSidenav_content">
     <main>
         <!--hjjh-->
-            <div class="container-fluid h-100">
-            <div class="row justify-content-center h-100">
+            <div class="container-fluid">
+                 <!--this for first div-->
+            <div class="row ">
                 <div class="col-md-4 col-xl-3 chat"><div class="card mb-sm-3 mb-md-0 contacts_card">
                     <div class="card-header">
                         <div class="input-group">
@@ -97,7 +98,8 @@
                     </div>
                     <div class="card-footer"></div>
                 </div></div>
-                <div class="col-md-8 col-xl-6 chat">
+                <!--this for first div-->
+                <div class="col-md-8 col-xl-9 chat">
                     <div class="card">
                         <div class="card-header msg_head">
                             <div class="d-flex bd-highlight">
