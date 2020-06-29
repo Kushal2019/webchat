@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <?php
+  session_start();
+  if(isset($_SESSION['email']))
+    {
+  header('location:login.php');
+    }
+
+  ?>
+<?php
 $val=" ";
     if(isset($_GET['msg']))
     {
