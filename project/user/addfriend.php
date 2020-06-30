@@ -45,7 +45,7 @@
                   <div class="col-md-7 col-sm-7">
                     <h5><a href="#" class="profile-link"><?=$userdata['name']?></a></h5>
                     <p><?=$userdata['profession']?></p>
-                    <p class="text-muted">500m away</p>
+                    <p class="text-muted"><?=on_off($userdata['email'])?></p>
                   </div>
                   <div class="col-md-3 col-sm-3">
                     <button class="btn btn-primary pull-right">Add Friend</button>
