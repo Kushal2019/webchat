@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2020 at 09:14 AM
+-- Generation Time: Jun 30, 2020 at 12:51 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.28
 
@@ -19,8 +19,21 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `chat`
+-- Database: `webchat`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` int(10) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `friend_email` int(11) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -44,7 +57,10 @@ CREATE TABLE `login_detais` (
 --
 
 INSERT INTO `login_detais` (`id`, `username`, `password`, `type`, `status`, `activelog`, `fristtime`, `lasttime`) VALUES
-(1, 'surojitsamui007@gmail.com', '733d7be2196ff70efaf6913fc8bdcabf', 'USER', '1', 'offline', '00.00', '00.00');
+(2, 'soumendolui077@gmail.com', '123654', 'USER', '1', 'offline', '00.00', '00.00'),
+(4, 'surojitsamui007@gmail.com', '1236541', 'USER', '1', 'offline', '00.00', '12:48:11'),
+(5, 'babu@gmail.com', '123654', 'user', '1', 'online', '00', '11:53:41'),
+(6, 'sona@gmail.com', '123654', 'user', '1', 'offline', '00', '00');
 
 -- --------------------------------------------------------
 
@@ -67,11 +83,20 @@ CREATE TABLE `user_detalis` (
 --
 
 INSERT INTO `user_detalis` (`id`, `name`, `user_pic`, `mobile`, `email`, `password`, `profession`) VALUES
-(1, 'Sonababu', 'upload/user_pic/userprofile.jpg', '8436993268', 'surojitsamui007@gmail.com', '733d7be2196ff70efaf6913fc8bdcabf', 'code');
+(4, 'babu sona', 'Screenshot (1).png', '8436993268', 'surojitsamui007@gmail.com', '1236541', 'code'),
+(5, 'babu', 'wallpaperflare.com_wallpaper (3).jpg', '1236547890', 'babu@gmail.com', '123654', 'code'),
+(6, 'sona', 'wallpaperflare.com_wallpaper (2).jpg', '5469871230', 'sona@gmail.com', '123654', 'code'),
+(7, 'soumen', 'wallpaperflare.com_wallpaper (2).jpg', '1236547098', 'soumendolui077@gmail.com', '123654', 'love');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `contacts`
+--
+ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `login_detais`
@@ -93,16 +118,22 @@ ALTER TABLE `user_detalis`
 --
 
 --
+-- AUTO_INCREMENT for table `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `login_detais`
 --
 ALTER TABLE `login_detais`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user_detalis`
 --
 ALTER TABLE `user_detalis`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
