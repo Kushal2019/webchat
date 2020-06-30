@@ -1,13 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-    $val="";
-    if(isset($_GET['msg']))
-    {
-    $GLOBALS['val']=$_GET['msg'];
-    }
-
-?>
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -19,25 +11,26 @@
         <link href="../css/addfriend.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="../js/user.js"></script>
+        <script type="text/javascript" src="../js/contact_search.js"></script>
+         <script type="text/javascript" src="../js/addfriend.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <?php
-            include("../pagesfile/topnav.php");
+            include("../pagesfile/addfriend_topnav.php");
             include("../pagesfile/sidetop.php");
             include("../ActionPages/backend.php");
         ?>
      <div id="layoutSidenav_content">
     <main>
-        <div class="container">
+        <div class="container" id="se">
     <div class="row">
         <div class="col-md-8">
-            <div class="people-nearby">
+            <div class="people-nearby" >
               <?php
                 while($userdata=mysqli_fetch_array($user))
                 {
               ?>
-              <form name="frm" action="../ActionPages/addfrienddata.php?" method="post">
+              <form name="frm" method="post">
               <div class="nearby-user">
                 <div class="row">
                   <div class="col-md-2 col-sm-2">
@@ -51,25 +44,22 @@
                   </div>
                   <div class="col-md-3 col-sm-3">
                     <?php
-                      $femail=$userdata['email'];
-                      $sql="select friend_email from contacts where friend_email='$femail'";
-                      if($check=mysqli_query($con,$sql))
-                       { 
-                        $valu=mysqli_fetch_array($check);
-                        if($valu['friend_email'])
-                        {
+                    $usermail=$_SESSION['email'];
+                    $friend_email=$userdata['email'];
+                   $sql="select * from contacts where username='$usermail' and friend_email='$friend_email'";
+                     if(!mysqli_fetch_array(mysqli_query($con,$sql)))
+                       {
                     ?>
-                    <input type="submit" value="Send Massage" class="btn btn-primary pull-right">
+                    <input type="submit" value="Addfriend" onclick="friend('<?=$userdata['email']?>')" class="btn btn-primary pull-right">
                     <?php
-                      }
-                      else
-                      {
-                    ?>
-                    <input type="submit" value="Add Friend" class="btn btn-primary pull-right">
-                    <?php
-                      }
                     }
+                    else
+                    {
                     ?>
+                    <input type="submit" value="Send Massage"  class="btn btn-primary pull-right" >
+                    <?php
+                  }
+                  ?>
                   </div>
                 </div>
               </div>
