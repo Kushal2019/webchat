@@ -9,6 +9,8 @@ if(isset($_POST['call']))
     if(mysqli_fetch_array(mysqli_query($con,$sql)))
         {
             $_SESSION['email']=$email;
+            $sql1="UPDATE login_detais SET activelog = 'online' WHERE username ='$email'";
+            mysqli_query($con,$sql1);
             if(isset($_POST['rempas']))
             {
                 setcookie("username", $email, time() + (86400 * 30), "/");
