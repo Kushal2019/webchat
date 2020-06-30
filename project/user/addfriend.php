@@ -37,7 +37,7 @@
                 while($userdata=mysqli_fetch_array($user))
                 {
               ?>
-              <form name="frm" action="../ActionPages/addfrienddata.php?mail=$userdata" method="post">
+              <form name="frm" action="../ActionPages/addfrienddata.php?" method="post">
               <div class="nearby-user">
                 <div class="row">
                   <div class="col-md-2 col-sm-2">

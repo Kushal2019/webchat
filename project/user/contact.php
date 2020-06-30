@@ -34,8 +34,10 @@
         <div class="col-md-8">
             <div class="people-nearby">
               <?php
-                while($userdata=mysqli_fetch_array($user))
+                while($con_user=mysqli_fetch_array($contact))
                 {
+                  $email=$con_user['friend_email'];
+                  $userdata=fri_detalis($email);
               ?>
               <div class="nearby-user">
                 <div class="row">
@@ -53,7 +55,7 @@
                 </div>
               </div>
               <?php
-                }
+              }
               ?>
             </div>
         </div>
