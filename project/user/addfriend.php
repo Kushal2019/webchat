@@ -37,6 +37,7 @@
                 while($userdata=mysqli_fetch_array($user))
                 {
               ?>
+              <form name="frm" action="../ActionPages/addfrienddata.php?mail=$userdata" method="post">
               <div class="nearby-user">
                 <div class="row">
                   <div class="col-md-2 col-sm-2">
@@ -45,13 +46,34 @@
                   <div class="col-md-7 col-sm-7">
                     <h5><a href="#" class="profile-link"><?=$userdata['name']?></a></h5>
                     <p><?=$userdata['profession']?></p>
+                    <input type="hidden" value="<?=$userdata['email']?>" name="mail1">
                     <p class="text-muted"><?=on_off($userdata['email'])?></p>
                   </div>
                   <div class="col-md-3 col-sm-3">
-                    <button class="btn btn-primary pull-right">Add Friend</button>
+                    <?php
+                      $femail=$userdata['email'];
+                      $sql="select friend_email from contacts where friend_email='$femail'";
+                      if($check=mysqli_query($con,$sql))
+                       { 
+                        $valu=mysqli_fetch_array($check);
+                        if($valu['friend_email'])
+                        {
+                    ?>
+                    <input type="submit" value="Send Massage" class="btn btn-primary pull-right">
+                    <?php
+                      }
+                      else
+                      {
+                    ?>
+                    <input type="submit" value="Add Friend" class="btn btn-primary pull-right">
+                    <?php
+                      }
+                    }
+                    ?>
                   </div>
                 </div>
               </div>
+              </form> 
               <?php
                 }
               ?>
@@ -61,7 +83,7 @@
 </div>
     
      </main>
-     
+    
 
         <?php
             include("../pagesfile/footer.php");
