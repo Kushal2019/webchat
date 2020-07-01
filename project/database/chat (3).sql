@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2020 at 12:51 PM
+-- Generation Time: Jul 01, 2020 at 06:38 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.28
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `webchat`
+-- Database: `chat`
 --
 
 -- --------------------------------------------------------
@@ -31,9 +31,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `contacts` (
   `id` int(10) NOT NULL,
   `username` varchar(255) NOT NULL,
-  `friend_email` int(11) NOT NULL,
-  `status` int(11) NOT NULL
+  `friend_email` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `username`, `friend_email`, `status`) VALUES
+(2, 'sona@gmail.com', 'surojitsamui007@gmail.com', '1'),
+(3, 'surojitsamui007@gmail.com', 'soumendolui077@gmail.com', '1'),
+(4, 'sona@gmail.com', 'soumendolui077@gmail.com', '1'),
+(5, 'babu@gmail.com', 'surojitsamui007@gmail.com', '1');
 
 -- --------------------------------------------------------
 
@@ -58,9 +68,9 @@ CREATE TABLE `login_detais` (
 
 INSERT INTO `login_detais` (`id`, `username`, `password`, `type`, `status`, `activelog`, `fristtime`, `lasttime`) VALUES
 (2, 'soumendolui077@gmail.com', '123654', 'USER', '1', 'offline', '00.00', '00.00'),
-(4, 'surojitsamui007@gmail.com', '1236541', 'USER', '1', 'offline', '00.00', '12:48:11'),
+(4, 'surojitsamui007@gmail.com', '1236541', 'USER', '1', 'offline', '00.00', '23:41:33'),
 (5, 'babu@gmail.com', '123654', 'user', '1', 'online', '00', '11:53:41'),
-(6, 'sona@gmail.com', '123654', 'user', '1', 'offline', '00', '00');
+(6, 'sona@gmail.com', '123654', 'user', '1', 'offline', '00', '23:42:29');
 
 -- --------------------------------------------------------
 
@@ -121,7 +131,7 @@ ALTER TABLE `user_detalis`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `login_detais`

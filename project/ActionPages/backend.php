@@ -15,7 +15,8 @@ function on_off($email)
 	$data=mysqli_fetch_array($d);
 	if($data['activelog']=='offline')
 	{
-		return $data['lasttime'];
+		$time='last seen :'.$data['lasttime'];
+		return $time;
 	}
 	else
 	{

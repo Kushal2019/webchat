@@ -11,7 +11,7 @@
         <link href="../css/addfriend.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="../js/contact_search.js"></script>
+        <script type="text/javascript" src="../js/addfrind_search.js"></script>
          <script type="text/javascript" src="../js/addfriend.js"></script>
     </head>
     <body class="sb-nav-fixed">
