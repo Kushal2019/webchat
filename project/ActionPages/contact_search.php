@@ -1,15 +1,19 @@
-
-   <?php
-   session_start();
-   $se_name=$_POST['id'];
-
+<?php
+  // echo "yes";
+  session_start();
    include("backend.php");
-   $sql="select * from user_detalis where name like '%$se_name%' and email !='$email'";
-   $d=mysqli_query($con,$sql);
-   while($userdata=mysqli_fetch_array($d))
-   {
+   $se_name=$_POST['id'];
+  $sql="select * from contacts where username ='$email'";
+  $e=mysqli_query($con,$sql);
+  while($d=mysqli_fetch_array($e))
+  {
+    $f_email=$d['friend_email'];
+    $sql="select * from contacts,user_detalis where contacts.username='$email'and contacts.friend_email='$f_email' and user_detalis.email=contacts.friend_email and user_detalis.name like '%$se_name%'";
+  $d=mysqli_query($con,$sql);
+ if($userdata=mysqli_fetch_array($d))
+ {
     ?>
-   <div class="container" id="se">
+   <div class="container" >
     <div class="row">
         <div class="col-md-8">
             <div class="people-nearby" >
@@ -53,5 +57,5 @@
 </div>
     <?php
     }
+  } 
     ?>
-
