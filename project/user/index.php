@@ -42,6 +42,7 @@
                 return false;  
             }
         }
+        
       </script>
     </head>
     <body class="sb-nav-fixed" onload="check_up_ero(<?=$val?>)">
