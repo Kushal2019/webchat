@@ -8,5 +8,8 @@ if($val=mysqli_query($con,$sql))
 {
 	echo "$mail";
 	header('location:../user/addfriend.php?');
+}else
+{
+	header('location: ../user/chatbox.php');
 }
 ?>
