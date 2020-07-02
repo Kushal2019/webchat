@@ -6,5 +6,5 @@ $tme=$_REQUEST['time'];
 $sql="update login_detais set lasttime='$tme',activelog = 'offline' where username='$var'";
 mysqli_query($con,$sql);
 session_destroy();
-header('location:New folder/index.php');
+header('Location: New folder/index.php');
 ?>
