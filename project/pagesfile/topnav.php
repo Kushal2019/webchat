@@ -1,20 +1,9 @@
-<<<<<<< HEAD
 <script> function fullDateTime() {
             var d = new Date();          
             var n = d.toLocaleString([], { hour12: true});
             window.location='../logout.php?time='+n;
         }
 </script>
-=======
-     <script>
-   function fullDateTime() {
-            var d = new Date();          
-            var time = d.toLocaleString([], { hour12: true});
-            document.cookie = "time = " + time;
-        }
-</script>
-
->>>>>>> b41f37b51315938cb0880efd8bedee0f7e7811ab
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
              <a class="navbar-brand" href="index.html">Start Bootstrap</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button
             ><!-- Navbar Search-->
@@ -33,13 +22,7 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="#">Settings</a><a class="dropdown-item" href="#">Activity Log</a>
                         <div class="dropdown-divider"></div>
-<<<<<<< HEAD
                         <input value="logout" id="sub" name="sub" type="submit" class="dropdown-item" onclick="fullDateTime();">
-=======
-                         <form action="../logout.php">
-                        <input type="submit" class="dropdown-item" onclick="fullDateTime()" value="Logout">
-                        </form>
->>>>>>> b41f37b51315938cb0880efd8bedee0f7e7811ab
                     </div>
                 
                 </li>
