@@ -8,7 +8,7 @@ include('../connect.php');
   $email=$_POST['email'];
   $pass=$_POST['pas']; 
   $prof=$_POST['prof'];
-  $sql="insert into user_detalis(name,mobile,email,password,profession,user_pic)values('$name','$phone','$email','$pass','$prof','userprofile.jpg')";
+  $sql="insert into user_detalis(name,mobile,email,password,profession,user_pic)values('$name','$phone','$email','$pass','$prof','user_pic.png')";
   if(mysqli_query($con,$sql))
   {
     $sql1="insert into login_detais(username,password,type,status,activelog,fristtime,lasttime)values('$email','$pass','USER','1','offline','00.00','00.00')";
