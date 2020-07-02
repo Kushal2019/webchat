@@ -2,10 +2,10 @@
 include("connect.php");
 session_start();
 $var=$_SESSION['email'];
-$time=$_COOKIES['time'];
-echo $time;
+//$time=$_COOKIES['time'];
+//echo $time;
 $sql="update login_detais set lasttime='',activelog = 'offline' where username='$var'";
 mysqli_query($con,$sql);
 session_destroy();
-//header('location:New folder/index.php');
+header('location:New folder/index.php');
 ?>
