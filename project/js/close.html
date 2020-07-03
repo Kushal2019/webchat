@@ -5,48 +5,12 @@
     <title> 
         How to detect browser or tab closing 
     </title> 
-   <script>/* function fullDateTime() {
-            var d = new Date();          
-            var n = d.toLocaleString([], { hour12: true});
-            window.location='../logout.php?time='+n;
-        }*/
-        function fullDateTime() {
-        	alert('a');
-        }
-</script>
 </head> 
-  
 <body> 
-    <h1 style="color: green"> 
-        GeeksforGeeks 
-    </h1> 
-      
-    <b>Detect browser or tab closing</b> 
-      
-    <p> 
-        The beforeunload function is triggered 
-        just before the browser or tab is to be 
-        closed or the page is to be reloaded. 
-        Modern browsers require some interaction 
-        with the page, otherwise the dialog box 
-        is not shown. 
-    </p> 
-      
-    <form> 
-        
-    </form> 
-      
     <script type="text/javascript"> 
         window.addEventListener('beforeunload', function (e) { 
-        	//e.fullDateTime();
-
             e.preventDefault(); 
             e.returnValue = 'smndjndjsnffnsjfnsjfn'; 
-            function fullDateTime() {
-        	alert('b');
-        }
-           // e.fullDateTime();
-
         }); 
     </script> 
 </body> 

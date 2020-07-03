@@ -29,9 +29,12 @@ body,html{
             border-bottom: 0 !important;
         }
      .card-footer{
+    
         border-radius: 0 0 15px 15px !important;
             border-top: 0 !important;
+            
     }
+
         .container{
             align-content: center;
         }
