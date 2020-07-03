@@ -10,3 +10,8 @@ function friend(email)
 		}
 	});
 }
+function massage(email)
+{
+	window.location ="../user/chatbox.php?email="+email;
+	//location.replace("../user/chatbox.php?");
+}

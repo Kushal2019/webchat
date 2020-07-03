@@ -30,7 +30,7 @@
                 while($userdata=mysqli_fetch_array($user))
                 {
               ?>
-              <form name="frm" method="post">
+              
               <div class="nearby-user">
                 <div class="row">
                   <div class="col-md-2 col-sm-2">
@@ -56,14 +56,13 @@
                     else
                     {
                     ?>
-                    <input type="submit" value="Send Massage"  class="btn btn-primary pull-right" >
+                    <input type="submit" value="Send Massage" onclick="massage('<?=$userdata['email']?>');"class="btn btn-primary pull-right" >
                     <?php
                   }
                   ?>
                   </div>
                 </div>
               </div>
-              </form> 
               <?php
                 }
               ?>

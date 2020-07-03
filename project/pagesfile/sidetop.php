@@ -1,3 +1,13 @@
+<script>
+$(window).bind('unload', function(){
+    $.ajax({
+        type: 'get',
+        async: false,
+        url: "../logout.php"
+    });
+});
+</script>
+
 <?php 
 require '../ActionPages/UserallData.php';
 $data=user_detalis($_SESSION['email']);
