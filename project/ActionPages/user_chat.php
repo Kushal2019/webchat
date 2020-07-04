@@ -60,65 +60,10 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="card-body msg_card_body">
-                            <div class="d-flex justify-content-start mb-4">
-                                <div class="img_cont_msg">
-                                    <img src="../upload/user_pic/<?=$fri_detalis['user_pic']?>" class="rounded-circle user_img_msg">
-                                </div>
-                                <div class="msg_cotainer">
-                                    Hi, how are you samim?
-                                    <span class="msg_time">8:40 AM, Today</span>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-end mb-4">
-                                <div class="msg_cotainer_send">
-                                    Hi Khalid i am how about you?
-                                    <span class="msg_time_send">8:55 AM, Today</span>
-                                </div>
-                                <div class="img_cont_msg">
-                                  <!--user image-->   
-                            <img src="data:image/jpeg;base64" class="rounded-circle user_img_msg">
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-start mb-4">
-                                <div class="img_cont_msg">
-                                    <img src="../upload/user_pic/<?=$fri_detalis['user_pic']?>" class="rounded-circle user_img_msg">
-                                </div>
-                                <div class="msg_cotainer">
-                                    Hi, how are you samim?
-                                    <span class="msg_time">8:40 AM, Today</span>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-end mb-4">
-                                <div class="msg_cotainer_send">
-                                    Hi Khalid i am how about you?
-                                    <span class="msg_time_send">8:55 AM, Today</span>
-                                </div>
-                                <div class="img_cont_msg">
-                                  <!--user image-->   
-                            <img src="data:image/jpeg;base64" class="rounded-circle user_img_msg">
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-start mb-4">
-                                <div class="img_cont_msg">
-                                    <img src="../upload/user_pic/<?=$fri_detalis['user_pic']?>" class="rounded-circle user_img_msg">
-                                </div>
-                                <div class="msg_cotainer">
-                                    Hi, how are you samim?
-                                    <span class="msg_time">8:40 AM, Today</span>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-end mb-4">
-                                <div class="msg_cotainer_send">
-                                    Hi Khalid i am how about you?
-                                    <span class="msg_time_send">8:55 AM, Today</span>
-                                </div>
-                                <div class="img_cont_msg">
-                                  <!--user image-->   
-                            <img src="data:image/jpeg;base64" class="rounded-circle user_img_msg">
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-start mb-4">
+                        <div class="card-body msg_card_body" id="allmsg">
+
+   
+                                                     <!--<div class="d-flex justify-content-start mb-4">
                                 <div class="img_cont_msg">
                                     <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
                                 </div>
@@ -133,11 +78,10 @@
                                     <span class="msg_time_send">9:05 AM, Today</span>
                                 </div>
                                 <div class="img_cont_msg"> 
-                                    <!--user image-->
-                            <img src="data:image/jpeg;base64"class="rounded-circle user_img_msg">
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-start mb-4">
+                           <img src="data:image/jpeg;base64"class="rounded-circle user_img_msg">
+                                </div>-
+                            </div>-->
+                            <!--<div class="d-flex justify-content-start mb-4">
                                 <div class="img_cont_msg">
                                     <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
                                 </div>
@@ -152,27 +96,26 @@
                                     <span class="msg_time_send">9:10 AM, Today</span>
                                 </div>
                                 <div class="img_cont_msg">
-                                    <!--user image-->
                         <img src="data:image/jpeg;base64," class="rounded-circle user_img_msg">
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="d-flex justify-content-start mb-4">
-                                <div class="img_cont_msg">
+                                <!--<div class="img_cont_msg">
                                     <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
                                 </div>
-                                <div class="msg_cotainer">
+                               <div class="msg_cotainer">
                                     Bye, see you
                                     <span class="msg_time">9:12 AM, Today</span>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
-                            <div class="input-group"style=" position: static;padding-top:3px;width: 800px;">
+                            <div class="input-group"style=" position: static;padding-top:3px;width: 100%x;">
                                 <div class="input-group-append" >
                                     <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
                                 </div>
-                                <textarea name="txarea" class="form-control type_msg"  id="" placeholder="Type your message..."></textarea>
+                                <textarea name="msg" class="form-control type_msg" id="msg" placeholder="Type your message..."></textarea>
                                 <div class="input-group-append">
-                                    <span class="input-group-text send_btn" id="send" name="send"><i class="fas fa-location-arrow"></i></span>
+                                    <span class="input-group-text send_btn" id="send" name="send" onclick="send_msg()"><i class="fas fa-location-arrow"></i></span>
                                 </div>
                             </div>
                     </div>
