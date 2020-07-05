@@ -12,6 +12,14 @@ function friend(email)
 }
 function massage(email)
 {
-	window.location ="../user/chatbox.php?email="+email;
-	//location.replace("../user/chatbox.php?");
+	$.ajax({
+		url:"../ActionPages/chatwith.php",
+		type:"post",
+		data:{id:email},
+		success: function(result)
+		{
+			window.location ="../user/chatbox.php?email="+email;
+		}
+	});
 }
+

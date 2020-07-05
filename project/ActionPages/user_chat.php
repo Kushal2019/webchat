@@ -70,6 +70,9 @@
                             include('../connect.php');
                             $sql="select * from chat_data where from_user in ('$user_email','$email') and  to_fri in('$email','$user_email')";
                             $s=mysqli_query($con,$sql);
+                            $sql2="select sysdate()";
+                            $s2=mysqli_query($con,$sql2);
+                            $c_tme=mysqli_fetch_array($s2);
                             while($d=mysqli_fetch_array($s))
                             {
                                 if($d['from_user']==$email)
@@ -82,8 +85,8 @@
                                     <img src="../upload/user_pic/<?=$fri_detalis['user_pic']?>" class="rounded-circle user_img_msg">
                                 </div>
                                 <div class="msg_cotainer">
-                                 <?=$d['msg']?>
-                                    <span class="msg_time">8:40 AM, Today</span>
+                                 <?=$d['msg']?><br>
+                                    <span class="msg_time"><?=$c_tme[0]?></span>
                                 </div>
                             </div>
                             <?php
@@ -94,7 +97,7 @@
                              <div class="d-flex justify-content-end mb-4">
                                 <div class="msg_cotainer_send"> 
                                     <?=$d['msg']?>
-                                    <span class="msg_time_send">8:55 AM, Today</span>
+                                    <span class="msg_time_send"><b><?=$c_tme[0]?></b></span>
                                 </div>
                                 <div class="img_cont_msg">
                             <img src="../upload/user_pic/<?=$user['user_pic']?>" class="rounded-circle user_img_msg">

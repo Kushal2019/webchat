@@ -16,3 +16,8 @@ function send_msg(email)
 	 		}
 	 });
 	}
+	function gotochat(email)
+{
+			window.location ="../user/chatbox.php?email="+email;
+	
+}
