@@ -7,10 +7,10 @@ $msg=$_POST['msg'];
 $sql="insert into chat_data(from_user,to_fri,msg,time)values('$email','$fri_email','$msg','00')";
 if(mysqli_query($con,$sql))
 {
-    echo "yes";
+    //echo "yes";
 }
 else
 {
-    echo "no";
+   // echo "no";
 }
 ?>

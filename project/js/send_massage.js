@@ -10,7 +10,7 @@ function send_msg(email)
 	 		data: {msg : msg, fri_email : email},
 	 		success: function(result)
 	 		{
-	 			alert(result);
+	 			//alert(result);
 			window.location ="../user/chatbox.php?email="+email;
 	 		//	document.getElementById("allmsg").innerHTML=result;
 	 		}
