@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2020 at 07:55 AM
+-- Generation Time: Jul 05, 2020 at 12:14 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.28
+-- PHP Version: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -43,7 +42,40 @@ CREATE TABLE `chat_data` (
 INSERT INTO `chat_data` (`id`, `from_user`, `to_fri`, `msg`, `time`) VALUES
 (1, 'surojitsamui007@gmail.com', 'bcaprogramup@gmail.com', 'hi I am babusona', '00'),
 (2, 'bcaprogramup@gmail.com', 'surojitsamui007@gmail.com', 'hi i am raj', '00'),
-(3, 'bcaprogramup@gmail.com', 'surojitsamui007@gmail.com', 'whatsapp', '00');
+(3, 'bcaprogramup@gmail.com', 'surojitsamui007@gmail.com', 'whatsapp', '00'),
+(0, 'soumendolui077@gmail.com', 'surojitsamui007@gmail.com', 'dfghj', '00'),
+(0, 'soumendolui077@gmail.com', 'surojitsamui007@gmail.com', 'ghj', '00'),
+(0, 'soumendolui077@gmail.com', 'surojitsamui007@gmail.com', 'sdfgh', '00'),
+(0, 'soumendolui077@gmail.com', 'surojitsamui007@gmail.com', 'fghj', '00'),
+(0, 'soumendolui077@gmail.com', 'surojitsamui007@gmail.com', 'soumen', '00'),
+(0, 'soumendolui077@gmail.com', 'surojitsamui007@gmail.com', 'soumen dolui\n', '00'),
+(0, 'soumendolui077@gmail.com', 'surojitsamui007@gmail.com', 'ghjk', '00'),
+(0, 'soumendolui077@gmail.com', 'surojitsamui007@gmail.com', 'soumen', '00'),
+(0, 'soumendolui077@gmail.com', 'surojitsamui007@gmail.com', 'jhk\n', '00'),
+(0, 'babu@gmail.com', 'babu@gmail.com', 'soumen', '00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chat_with`
+--
+
+CREATE TABLE `chat_with` (
+  `id` int(10) NOT NULL,
+  `user` varchar(255) NOT NULL,
+  `friend` varchar(255) NOT NULL,
+  `friend_name` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `chat_with`
+--
+
+INSERT INTO `chat_with` (`id`, `user`, `friend`, `friend_name`, `status`) VALUES
+(1, 'soumendolui077@gmail.com', 'surojitsamui007@gmail.com', 'babu sona', '1'),
+(2, 'soumendolui077@gmail.com', 'babu@gmail.com', 'babu', '1'),
+(3, 'soumendolui077@gmail.com', 'sona@gmail.com', 'sona', '1');
 
 -- --------------------------------------------------------
 
@@ -63,10 +95,12 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`id`, `username`, `friend_email`, `status`) VALUES
-(1, 'bcaprogramup@gmail.com', 'surojitsamui007@gmail.com', '1'),
-(2, 'bcaprogramup@gmail.com', 'babu@gmail.com', '1'),
-(3, 'surojitsamui007@gmail.com', 'babu@gmail.com', '1'),
-(4, 'surojitsamui007@gmail.com', 'bcaprogramup@gmail.com', '1');
+(1, 'soumendolui077@gmail.com', 'surojitsamui007@gmail.com', '1'),
+(2, 'soumendolui077@gmail.com', 'babu@gmail.com', '1'),
+(3, 'soumendolui077@gmail.com', 'sona@gmail.com', '1'),
+(4, 'babu@gmail.com', 'surojitsamui007@gmail.com', '1'),
+(5, 'babu@gmail.com', 'sona@gmail.com', '1'),
+(6, 'babu@gmail.com', 'soumendolui077@gmail.com', '1');
 
 -- --------------------------------------------------------
 
@@ -90,11 +124,10 @@ CREATE TABLE `login_detais` (
 --
 
 INSERT INTO `login_detais` (`id`, `username`, `password`, `type`, `status`, `activelog`, `fristtime`, `lasttime`) VALUES
-(2, 'soumendolui077@gmail.com', '123654', 'USER', '1', 'offline', '00.00', '7/2/2020, 12:47:57 PM'),
-(4, 'surojitsamui007@gmail.com', '123654', 'USER', '1', 'online', '00.00', '7/4/2020, 10:49:28 AM'),
-(5, 'babu@gmail.com', '123654', 'user', '1', 'offline', '00', ''),
-(6, 'sona@gmail.com', '123654', 'user', '1', 'offline', '00', '7/3/2020, 7:47:05 AM'),
-(7, 'bcaprogramup@gmail.com', '123654', 'USER', '1', 'online', '00.00', '7/5/2020, 10:59:11 AM');
+(2, 'soumendolui077@gmail.com', '123654', 'USER', '1', 'online', '00.00', '7/5/2020, 11:30:59 AM'),
+(4, 'surojitsamui007@gmail.com', '1236541', 'USER', '1', 'offline', '00.00', '7/3/2020, 10:34:51 AM'),
+(5, 'babu@gmail.com', '123654', 'user', '1', 'online', '00', ''),
+(6, 'sona@gmail.com', '123654', 'user', '1', 'offline', '00', '‎03‎-‎07‎-‎2020‎ ‎2‎.‎19‎.‎08‎ ‎PM');
 
 -- --------------------------------------------------------
 
@@ -117,20 +150,19 @@ CREATE TABLE `user_detalis` (
 --
 
 INSERT INTO `user_detalis` (`id`, `name`, `user_pic`, `mobile`, `email`, `password`, `profession`) VALUES
-(4, 'babu sona', 'Screenshot (1).png', '8436993268', 'surojitsamui007@gmail.com', '123654', 'code'),
+(4, 'babu sona', 'Screenshot (1).png', '8436993268', 'surojitsamui007@gmail.com', '1236541', 'code'),
 (5, 'babu', 'wallpaperflare.com_wallpaper (3).jpg', '1236547890', 'babu@gmail.com', '123654', 'code'),
-(6, 'sona babu', 'wallpaperflare.com_wallpaper (2).jpg', '5469871230', 'sona@gmail.com', '123654', 'code'),
-(7, 'soumen', 'wallpaperflare.com_wallpaper (2).jpg', '1236547098', 'soumendolui077@gmail.com', '123654', 'love'),
-(8, 'raj mondal', 'user_pic.png', '4569871230', 'bcaprogramup@gmail.com', '123654', 'upload');
+(6, 'sona', 'wallpaperflare.com_wallpaper (2).jpg', '5469871230', 'sona@gmail.com', '123654', 'code'),
+(7, 'soumen', 'wallpaperflare.com_wallpaper (2).jpg', '1236547098', 'soumendolui077@gmail.com', '123654', 'hhj');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `chat_data`
+-- Indexes for table `chat_with`
 --
-ALTER TABLE `chat_data`
+ALTER TABLE `chat_with`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -159,28 +191,28 @@ ALTER TABLE `user_detalis`
 --
 
 --
--- AUTO_INCREMENT for table `chat_data`
+-- AUTO_INCREMENT for table `chat_with`
 --
-ALTER TABLE `chat_data`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `chat_with`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `login_detais`
 --
 ALTER TABLE `login_detais`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user_detalis`
 --
 ALTER TABLE `user_detalis`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
