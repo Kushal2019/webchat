@@ -2,7 +2,6 @@
     $email=$_GET['email'];
     $fri_detalis=fri_detalis($email);
     $fri_on_off=on_off($email);
-   // echo $fri_on_off;
  ?>
  <div class="col-md-8 col-xl-9 chat">
                     <div class="card">
@@ -60,8 +59,47 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="card-body msg_card_body" id="allmsg">
+                        <div class="card-body msg_card_body">
+                            <?php
+                           // session_start();
+                            $user=$_SESSION['email'];
+                            include('../connect.php');
+                            $sql="select * from chat_data where from_user in ('$user','$email') and  to_fri in('$email','$user')";
+                            $s=mysqli_query($con,$sql);
+                            while($d=mysqli_fetch_array($s))
+                            {
+                                if($d['to_fri']==$email)
+                                {
+                        ?>
+                            <!--massage-->
 
+                         <div class="d-flex justify-content-start mb-4">
+                                <div class="img_cont_msg">
+                                    <img src="../upload/user_pic/<?=$fri_detalis['user_pic']?>" class="rounded-circle user_img_msg">
+                                </div>
+                                <div class="msg_cotainer">
+                                 <?=$d['msg']?>
+                                    <span class="msg_time">8:40 AM, Today</span>
+                                </div>
+                            </div>
+                            <?php
+                                }
+                                else
+                                {
+                            ?>
+                             <div class="d-flex justify-content-end mb-4">
+                                <div class="msg_cotainer_send"> 
+                                    <?=$d['msg']?>
+                                    <span class="msg_time_send">8:55 AM, Today</span>
+                                </div>
+                                <div class="img_cont_msg">
+                            <img src="../upload/user_pic/<?=$fri_detalis['user_pic']?>" class="rounded-circle user_img_msg">
+                                </div>
+                            </div>
+                            <?php
+                                }
+                            }
+                            ?>
    
                                                      <!--<div class="d-flex justify-content-start mb-4">
                                 <div class="img_cont_msg">
@@ -115,7 +153,7 @@
                                 </div>
                                 <textarea name="msg" class="form-control type_msg" id="msg" placeholder="Type your message..."></textarea>
                                 <div class="input-group-append">
-                                    <span class="input-group-text send_btn" id="send" name="send" onclick="send_msg()"><i class="fas fa-location-arrow"></i></span>
+                                    <span class="input-group-text send_btn" id="send" name="send" onclick="send_msg('<?=$email?>')"><i class="fas fa-location-arrow"></i></span>
                                 </div>
                             </div>
                     </div>

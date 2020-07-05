@@ -7,7 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Dashboard - SB Admin</title>
-        <link href="../css/styles.css" rel="stylesheet" />
+         <link href="../css/styles.css" rel="stylesheet" />
         <link href="../css/chatbox.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
         <script src="../js/send_massage.js"></script>
