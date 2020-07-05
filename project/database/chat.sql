@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2020 at 12:14 PM
+-- Generation Time: Jul 05, 2020 at 12:31 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -124,7 +124,7 @@ CREATE TABLE `login_detais` (
 --
 
 INSERT INTO `login_detais` (`id`, `username`, `password`, `type`, `status`, `activelog`, `fristtime`, `lasttime`) VALUES
-(2, 'soumendolui077@gmail.com', '123654', 'USER', '1', 'online', '00.00', '7/5/2020, 11:30:59 AM'),
+(2, 'soumendolui077@gmail.com', '123654', 'USER', '1', 'online', '00.00', '7/5/2020, 4:01:17 PM'),
 (4, 'surojitsamui007@gmail.com', '1236541', 'USER', '1', 'offline', '00.00', '7/3/2020, 10:34:51 AM'),
 (5, 'babu@gmail.com', '123654', 'user', '1', 'online', '00', ''),
 (6, 'sona@gmail.com', '123654', 'user', '1', 'offline', '00', '‎03‎-‎07‎-‎2020‎ ‎2‎.‎19‎.‎08‎ ‎PM');
