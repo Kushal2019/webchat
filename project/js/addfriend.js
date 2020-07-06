@@ -6,20 +6,7 @@ function friend(email)
 		data:{id:email},
 		success: function(result)
 		{
-			window.location ="../user/addfriend.php";
+			 document.getElementById("bu").innerHTML="<input type='submit' value='send massage' class='btn btn-primary pull-right'>";
 		}
 	});
 }
-function massage(email)
-{
-	$.ajax({
-		url:"../ActionPages/chatwith.php",
-		type:"post",
-		data:{id:email},
-		success: function(result)
-		{
-			window.location ="../user/chatbox.php?email="+email;
-		}
-	});
-}
-

@@ -13,6 +13,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="../js/addfrind_search.js"></script>
          <script type="text/javascript" src="../js/addfriend.js"></script>
+          <script type="text/javascript" src="../js/jsfile.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <?php
@@ -30,7 +31,7 @@
                 while($userdata=mysqli_fetch_array($user))
                 {
               ?>
-              
+              <form name="frm" method="post">
               <div class="nearby-user">
                 <div class="row">
                   <div class="col-md-2 col-sm-2">
@@ -56,13 +57,14 @@
                     else
                     {
                     ?>
-                    <input type="submit" value="Send Massage" onclick="massage('<?=$userdata['email']?>');"class="btn btn-primary pull-right" >
+                    <input type="button"  onclick="targetmsg(<?=$userdata['id']?>)" value="Send Massage"  class="btn btn-primary pull-right" >
                     <?php
                   }
                   ?>
                   </div>
                 </div>
               </div>
+              </form> 
               <?php
                 }
               ?>

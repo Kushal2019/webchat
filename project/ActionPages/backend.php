@@ -1,4 +1,4 @@
-	<?php
+<?php
 //session_start();
 include('../connect.php');
 $email=$_SESSION['email'];

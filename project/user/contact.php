@@ -12,8 +12,7 @@
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="../js/contact_search.js"></script>
-          <script type="text/javascript" src="../js/addfriend.js"></script>
-
+        <script type="text/javascript" src="../js/jsfile.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <?php
@@ -44,7 +43,7 @@
                     <p class="text-muted"><?=on_off($userdata['email'])?></p>
                   </div>
                   <div class="col-md-3 col-sm-3">
-                     <input type="submit" value="Send Massage" onclick="massage('<?=$userdata['email']?>');"class="btn btn-primary pull-right" >
+                    <button class="btn btn-primary pull-right" onclick="targetmsg(<?=$userdata['id']?>)">Send Massage</button>
                   </div>
                 </div>
               </div>
