@@ -31,5 +31,14 @@ function fri_detalis($email)
 	$data=mysqli_fetch_array($user);
 	return $data;
 }
+function fri_id($id)
+{
+	global $con; 
+	$sql="select * from user_detalis where id='$id'";
+	$user=mysqli_query($con,$sql);
+	$data=mysqli_fetch_array($user);
+	return $data;
+}
+
 
 ?>

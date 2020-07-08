@@ -16,7 +16,18 @@
           {
             ?>
             <script type="text/javascript">
-               refresh(<?=$_GET['id']?>);
+                function re()
+                {
+                    refresh('<?=$_GET['id']?>');
+                  //  online('<?=$_GET['id']?>');
+                }
+                function on()
+                {
+                   // refresh('<?=$_GET['id']?>');
+                    online('<?=$_GET['id']?>');
+                }
+                setTimeout( re,10 );
+              window.setInterval(on, 2000);
             </script>
             <?php   
           }
@@ -117,6 +128,7 @@
                             {
                               //include('chat_header.php'); 
                                 ?>
+                                <p hidden id="id"><?=$_GET['id']?></p>
                    <div class="card-body msg_card_body">
                            <?php
                             include('chat_massage_send.php');
