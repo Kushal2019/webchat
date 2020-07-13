@@ -5,16 +5,12 @@ $sql="select * from user_detalis,login_detais where login_detais.username=(selec
 $d=mysqli_fetch_array(mysqli_query($con,$sql));
 if($d['activelog']=='online')
 {
-?>
-	<span class="online_icon"></span>
-	<?php
-	//echo "online";
+	echo "1";
 }
 else
 {
-	?>
-	 <span class="online_icon offline"></span>
-	<?php
+	echo $d['lasttime']; 
+	 
 }
 
 ?>

@@ -1,22 +1,47 @@
- <div class="d-flex justify-content-start mb-4">
+                          <?php
+                          session_start();
+                            include('backend.php');
+                            $id=$_POST['id'];
+                            $fri_de=fri_id($id);
+                            $user=fri_detalis($email);
+                            $fri_email=$fri_de['email'];
+                            $sql="select * from chat_data where from_user in('$email','$fri_email') and to_fri in('$fri_email','$email')";
+                            $d=mysqli_query($con,$sql);
+                            while($c=mysqli_fetch_array($d))
+                            {
+                            if($c['to_fri']!=$fri_email)
+                            {
+                          ?>
+
+                            <div class="d-flex justify-content-start mb-4">
                                 <div class="img_cont_msg">
-                                    <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
+                                    <img src="../upload/user_pic/<?=$fri_de['user_pic']?>" class="rounded-circle user_img_msg">
                                 </div>
                                 <div class="msg_cotainer">
-                                    Hi, how are you samim?
-                                    <span class="msg_time">8:40 AM, Today</span>
+                                   <?=$c['msg']?>
+                                    <span class="msg_time">  <?=$c['time']?></span>
                                 </div>
                             </div>
+                            <?php
+                                }
+                                else
+                                {
+                            ?>
                             <div class="d-flex justify-content-end mb-4">
                                 <div class="msg_cotainer_send">
-                                    Hi Khalid i am goodmnjnjhbkjhuhkiuhiuhiujiior tnx how about you?
-                                    <span class="msg_time_send">8:55 AM, Today</span>
+                                     <?=$c['msg']?>
+                                    <span class="msg_time_send"> <?=$c['time']?></span>
                                 </div>
                                 <div class="img_cont_msg">
-                            <img src="" class="rounded-circle user_img_msg">
+                                    <img src="../upload/user_pic/<?=$user['user_pic']?>" class="rounded-circle user_img_msg">
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-start mb-4">
+                            <?php
+
+                            }
+                             }
+                            ?>
+                         <!--   <div class="d-flex justify-content-start mb-4">
                                 <div class="img_cont_msg">
                                     <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
                                 </div>
@@ -51,8 +76,8 @@
                                 <div class="img_cont_msg">
                         <img src="" class="rounded-circle user_img_msg">
                                 </div>
-                            </div>
-                            <div class="d-flex justify-content-start mb-4">
+                            </div>-->
+                           <!-- <div class="d-flex justify-content-start mb-4">
                                 <div class="img_cont_msg">
                                     <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
                                 </div>
@@ -60,4 +85,4 @@
                                     Bye, see you
                                     <span class="msg_time">9:12 AM, Today</span>
                                 </div>
-                            </div>
+                            </div>-->

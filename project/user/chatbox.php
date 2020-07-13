@@ -19,21 +19,28 @@
                 function re()
                 {
                     refresh('<?=$_GET['id']?>');
-                  //  online('<?=$_GET['id']?>');
                 }
                 function on()
                 {
-                   // refresh('<?=$_GET['id']?>');
                     online('<?=$_GET['id']?>');
+                    
+                }
+                function massage()
+                {
+                 massage_recevied('<?=$_GET['id']?>');   
                 }
                 setTimeout( re,10 );
               window.setInterval(on, 2000);
+               window.setInterval(massage, 1000);
             </script>
+           
             <?php   
           }
         ?>
     </head>
     <body class="sb-nav-fixed">
+       
+
         <?php
             include("../pagesfile/topnav.php");
             include("../pagesfile/sidetop.php");
@@ -62,12 +69,24 @@
                                     <span class="online_icon"></span> 
                                 </div>
                                 <div class="user_info">
+                                    <span>K</span>
+                                    <p>Kalid is online</p>
+                                </div>
+                            </div>
+                        </li>
+                            <li class="active">
+                            <div class="d-flex bd-highlight">
+                                <div class="img_cont">
+                                    <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
+                                    <span class="online_icon"></span> 
+                                </div>
+                                <div class="user_info">
                                     <span>Khalid</span>
                                     <p>Kalid is online</p>
                                 </div>
                             </div>
                         </li>
-                        <li>
+                       <!-- <li class="active">
                             <div class="d-flex bd-highlight">
                                 <div class="img_cont">
                                     <img src="../upload/user_pic/<?=$data['user_pic']?>" class="rounded-circle user_img">
@@ -79,7 +98,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li>
+                        <li class="active">
                             <div class="d-flex bd-highlight">
                                 <div class="img_cont">
                                     <img src="https://i.pinimg.com/originals/ac/b9/90/acb990190ca1ddbb9b20db303375bb58.jpg" class="rounded-circle user_img">
@@ -114,7 +133,7 @@
                                     <p>Rashid left 50 mins ago</p>
                                 </div>
                             </div>
-                        </li>
+                        </li>-->
                         </ui>
                     </div>
                     <div class="card-footer"></div>
@@ -122,33 +141,41 @@
                 <!--this for first div-->
                 <div class="col-md-8 col-xl-9 chat">
                     <div class="card" >
-                        <div id="header"></div>
+                        
                         <?php
                             if(isset($_GET['id']))
                             {
                               //include('chat_header.php'); 
                                 ?>
-                                <p hidden id="id"><?=$_GET['id']?></p>
-                   <div class="card-body msg_card_body">
-                           <?php
-                            include('chat_massage_send.php');
-                           ?>
+                                <div id="header">
+                                    </div>
+                        <span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
+                            <div class="action_menu">
+                                <ul>
+                                    <li><i class="fas fa-user-circle"></i> View profile</li>
+                                    <li><i class="fas fa-users"></i> Add to close friends</li>
+                                    <li><i class="fas fa-plus"></i> Add to group</li>
+                                    <li><i class="fas fa-ban"></i> Block</li>
+                                </ul>
+                            </div>
+                         
+                   <div class="card-body msg_card_body" scrolling="auto" onscroll="">
+                            <div id="msg_receive">
+                       </div>
                         </div>
-                     
                         <div class="card-footer">
                             <div class="input-group" >
                                 <div class="input-group-append">
                                     <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
                                 </div>
-                                <textarea name="" class="form-control type_msg" placeholder="Type your message..."></textarea>
+                                <input type="text" name="" class="form-control type_msg" id="msg1" placeholder="Type your message..."></textarea>
                                 <div class="input-group-append">
-                                    <span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
+                                    <span class="input-group-text send_btn" onclick="massage_send('<?=$_GET['id']?>')"><i class="fas fa-location-arrow"></i></span>
                                 </div>
                             </div>
                         </div>
                         <?php
-
-                            }
+                                }
                             else
                             {
                                 ?>
@@ -173,6 +200,22 @@
            
         ?>
             </div>
+             <script>
+                var input = document.getElementById("msg1");
+                input.addEventListener("keyup", function(event) {
+                if (event.keyCode === 13) 
+                {
+                event.preventDefault();
+                massage_send('<?=$_GET['id']?>');
+                 }
+});
+</script>
+<script type="text/javascript"> 
+        window.addEventListener("beforeunload", function (e) { 
+            //alert('nm');
+            //e.preventDefault(); 
+        }); 
+    </script> 
        
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
