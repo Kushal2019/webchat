@@ -2,6 +2,16 @@ function targetmsg(id){
 	//alert(id);	
 	window.location ="../user/chatbox.php?id="+id;
 }
+/*function targetmsg1(id){ 
+	//alert(id);	
+	$.ajax({
+
+		url:"../user/chatbox.php",
+		type:"get",
+		data:{id:id}
+
+	});
+}*/
 function refresh(val)
 {
 	//val="a1"
@@ -23,38 +33,25 @@ function refresh(val)
 }
 function online(val)
 {
+	var d = new Date();          
+    var n = d.toLocaleString([], { hour12: true});
+ 	cu_date=n.substring(0,9);
+ 	//cu_time=n.substring(9,18);	
 
 $.ajax({
 		url:"online.php",
 		type:"post",
-		data:{id:val},
+		data:{id:val,cd:cu_date},
 		success: function(result)
 		{ 
-			var d = new Date();          
-            var n = d.toLocaleString([], { hour12: true});
- 			cu_data=n.substring(0,8);
- 			cu_time=n.substring(9,18);	
- 			//alert(cu_data);
+ 			//alert(result);
 			if(result==1)
 			{
-				 $('#online').html("<span class='online_icon'></span>");
-				 $('#time').html("online");
+				$('#time').html("online");
 			}
 			else
 			{
-				$('#online').html("<span class='online_icon offline'></span>");
-				de_data=result.substring(0,8);
- 				de_time=result.substring(10,23);
- 				//alert(de_time);
- 				if(cu_data.substring(2,3)==de_data.substring(2,3))
- 				{
- 					$('#time').html("lastseen ".de_time);
- 				}
- 				else
- 				{
-					$('#time').html("yesterday "+de_time);
-				}
-
+			$('#time').html(result);
 			}
 		}
 	});
@@ -70,7 +67,7 @@ function massage_send(val)
 	{
 	var d = new Date();          
     var n = d.toLocaleString([], { hour12: true});
-  	var date=n.substring(0,8);
+  	var date=n.substring(0,9);
  	var time=n.substring(10,23);
 	$.ajax({
 
@@ -95,9 +92,56 @@ function massage_recevied(val)
 		success:function(result)
 		{
 			//alert(result);
+			if(result==1)
+			{
+				
+			}
+			else
+			{
 			$('#msg_receive').html(result);
-
 			$('.card-body').scrollTop(10000000);
+			}
+		}
+	});
+}
+function user_chat()
+{
+	$.ajax({
+		url:"../ActionPages/chat_user.php",
+		success:function(result)
+		{
+			//alert(result);
+			if(result==1)
+			{
+			//alert(result);	
+			}
+			else
+			{
+			$('#chat_user').html(result);
+
+			}
+		}
+	});
+}
+
+function online1(id)
+{
+	$.ajax({
+		url:"../ActionPages/online_icon.php",
+		type:"post",
+		data:{id:id},
+		success: function(result)
+		{ 
+ 			//alert(result);
+ 			var a="'"+'#'+id+"'";
+			if(result=='1')
+			{
+			$('#online').html("<span class='online_icon'></span>");
+			}
+			else
+			{
+			$('#online').html("<span class='online_icon offline'></span>");
+			}
 		}
 	});
 }

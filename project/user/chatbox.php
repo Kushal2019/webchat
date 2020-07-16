@@ -11,6 +11,7 @@
         <link href="../css/chatbox.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
          <script src="../js/jsfile.js"></script>
+        
          <?php
           if(isset($_GET['id']))
           {
@@ -20,25 +21,45 @@
                 {
                     refresh('<?=$_GET['id']?>');
                 }
+
                 function on()
                 {
                     online('<?=$_GET['id']?>');
+                   // chat_user()
                     
                 }
                 function massage()
                 {
-                 massage_recevied('<?=$_GET['id']?>');   
+                    //alert(id);
+                 massage_recevied('<?=$_GET['id']?>');
+                 //user_chat();  
                 }
                 setTimeout( re,10 );
-              window.setInterval(on, 2000);
-               window.setInterval(massage, 1000);
+              window.setInterval(on, 100);
+               window.setInterval(massage, 100);
+
+              
             </script>
            
             <?php   
           }
         ?>
+         <script>
+             function user_chat1()
+                {
+                 user_chat();  
+                }
+                 function Cleartime()
+                {
+                    $.ajax({
+                        url:"../ActionPages/cleartime.php"
+                    });
+                }
+                 window.setInterval(user_chat1, 100);
+        </script>
+        
     </head>
-    <body class="sb-nav-fixed">
+    <body class="sb-nav-fixed" onload="Cleartime()">
        
 
         <?php
@@ -62,78 +83,8 @@
                     </div>
                     <div class="card-body contacts_body">
                         <ui class="contacts">
-                        <li class="active">
-                            <div class="d-flex bd-highlight">
-                                <div class="img_cont">
-                                    <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
-                                    <span class="online_icon"></span> 
-                                </div>
-                                <div class="user_info">
-                                    <span>K</span>
-                                    <p>Kalid is online</p>
-                                </div>
+                            <div id="chat_user">
                             </div>
-                        </li>
-                            <li class="active">
-                            <div class="d-flex bd-highlight">
-                                <div class="img_cont">
-                                    <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
-                                    <span class="online_icon"></span> 
-                                </div>
-                                <div class="user_info">
-                                    <span>Khalid</span>
-                                    <p>Kalid is online</p>
-                                </div>
-                            </div>
-                        </li>
-                       <!-- <li class="active">
-                            <div class="d-flex bd-highlight">
-                                <div class="img_cont">
-                                    <img src="../upload/user_pic/<?=$data['user_pic']?>" class="rounded-circle user_img">
-                                    <span class="online_icon offline"></span>
-                                </div>
-                                <div class="user_info">
-                                    <span>Taherah Big</span>
-                                    <p>Taherah left 7 mins ago</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="active">
-                            <div class="d-flex bd-highlight">
-                                <div class="img_cont">
-                                    <img src="https://i.pinimg.com/originals/ac/b9/90/acb990190ca1ddbb9b20db303375bb58.jpg" class="rounded-circle user_img">
-                                    <span class="online_icon"></span>
-                                </div>
-                                <div class="user_info">
-                                    <span>Sami Rafi</span>
-                                    <p>Sami is online</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="d-flex bd-highlight">
-                                <div class="img_cont">
-                                    <img src="http://profilepicturesdp.com/wp-content/uploads/2018/07/sweet-girl-profile-pictures-9.jpg" class="rounded-circle user_img">
-                                    <span class="online_icon offline"></span>
-                                </div>
-                                <div class="user_info">
-                                    <span>Nargis Hawa</span>
-                                    <p>Nargis left 30 mins ago</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="d-flex bd-highlight">
-                                <div class="img_cont">
-                                    <img src="https://static.turbosquid.com/Preview/001214/650/2V/boy-cartoon-3D-model_D.jpg" class="rounded-circle user_img">
-                                    <span class="online_icon offline"></span>
-                                </div>
-                                <div class="user_info">
-                                    <span>Rashid Samim</span>
-                                    <p>Rashid left 50 mins ago</p>
-                                </div>
-                            </div>
-                        </li>-->
                         </ui>
                     </div>
                     <div class="card-footer"></div>
@@ -153,9 +104,10 @@
                             <div class="action_menu">
                                 <ul>
                                     <li><i class="fas fa-user-circle"></i> View profile</li>
-                                    <li><i class="fas fa-users"></i> Add to close friends</li>
-                                    <li><i class="fas fa-plus"></i> Add to group</li>
-                                    <li><i class="fas fa-ban"></i> Block</li>
+                                    <li><i class="fas fa-users"></i> Clear chat </li>
+                                    <li><i class="fa fa-trash-o"></i> Delete chat </li>
+                                    <li><i class="fas fa-ban"></i> Block friend</li>
+                                    <li><i class="fa fa-unlock"></i> Unblock friend</li>
                                 </ul>
                             </div>
                          
@@ -200,6 +152,10 @@
            
         ?>
             </div>
+            <?php
+                if(isset($_GET['id']))
+                {
+            ?>
              <script>
                 var input = document.getElementById("msg1");
                 input.addEventListener("keyup", function(event) {
@@ -210,11 +166,15 @@
                  }
 });
 </script>
+<?php
+}
+?>
 <script type="text/javascript"> 
         window.addEventListener("beforeunload", function (e) { 
             //alert('nm');
             //e.preventDefault(); 
         }); 
+        
     </script> 
        
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>

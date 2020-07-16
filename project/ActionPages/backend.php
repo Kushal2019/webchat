@@ -15,12 +15,11 @@ function on_off($email)
 	$data=mysqli_fetch_array($d);
 	if($data['activelog']=='offline')
 	{
-		$time='last seen :'.$data['lasttime'];
-		return $time;
+		return '0';
 	}
 	else
 	{
-	return $data['activelog'];	
+	return '1';	
 	} 
 }
 function fri_detalis($email)

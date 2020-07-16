@@ -3,6 +3,7 @@
     session_start();
         include("../ActionPages/backend.php");
         $frienddata=fri_id($_POST['id']);
+        //print_r($frienddata);
     ?>
                         <div class="card-header msg_head">
                             <div class="d-flex bd-highlight">
@@ -23,13 +24,4 @@
                                     <span><i class="fas fa-phone"></i></span>
                                 </div>
                             </div>
-                          <!--  <span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
-                            <div class="action_menu">
-                                <ul>
-                                    <li><i class="fas fa-user-circle"></i> View profile</li>
-                                    <li><i class="fas fa-users"></i> Add to close friends</li>
-                                    <li><i class="fas fa-plus"></i> Add to group</li>
-                                    <li><i class="fas fa-ban"></i> Block</li>
-                                </ul>
-                            </div>-->
                         </div>
