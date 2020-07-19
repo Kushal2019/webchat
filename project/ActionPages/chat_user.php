@@ -40,7 +40,7 @@
                             <div class="d-flex bd-highlight" onclick="targetmsg('<?=$fri['id']?>')">
                                 <div class="img_cont">
                                     <img src="../upload/user_pic/<?=$fri['user_pic']?>" class="rounded-circle user_img">
-                                    <div id="online" >
+                                    <div id='<?=$fri['email']?>'>
                                         <script>
                                             function re1()
                                             {

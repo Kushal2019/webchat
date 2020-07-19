@@ -45,14 +45,37 @@
           }
         ?>
          <script>
+// When the user clicks on div, open the popup
+function myFunction(id)
+ {
+  var popup = document.getElementById(id);
+  popup.classList.toggle("show");
+}
+            function delete_msg()
+            {
+               alert("ok"); 
+               var a=document.getElementsByClassName('del');
+              // document.
+            for(i=0;i<a.length;i++)
+            {
+                a[i].style.display="block";
+            }
+
+            }
              function user_chat1()
                 {
                  user_chat();  
                 }
                  function Cleartime()
                 {
+                   // alert('jwdjbd');
                     $.ajax({
-                        url:"../ActionPages/cleartime.php"
+                       // alert('jwdjbd');
+                        url:"../ActionPages/cleartime.php",
+                        success:function(re)
+                        {
+                           // alert(re);
+                        }
                     });
                 }
                  window.setInterval(user_chat1, 100);
@@ -63,6 +86,7 @@
        
 
         <?php
+        session_start();
             include("../pagesfile/topnav.php");
             include("../pagesfile/sidetop.php");
         ?>
@@ -79,7 +103,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text search_btn"><i class="fas fa-search"></i></span>
                             </div>
-                        </div>
+                        </div> 
                     </div>
                     <div class="card-body contacts_body">
                         <ui class="contacts">
@@ -105,7 +129,7 @@
                                 <ul>
                                     <li><i class="fas fa-user-circle"></i> View profile</li>
                                     <li><i class="fas fa-users"></i> Clear chat </li>
-                                    <li><i class="fa fa-trash-o"></i> Delete chat </li>
+                                    <li><i class="fa fa-trash" aria-hidden="true"></i><samp onclick="delete_msg();"> Delete chat</samp> </li>
                                     <li><i class="fas fa-ban"></i> Block friend</li>
                                     <li><i class="fa fa-unlock"></i> Unblock friend</li>
                                 </ul>
@@ -114,6 +138,10 @@
                    <div class="card-body msg_card_body" scrolling="auto" onscroll="">
                             <div id="msg_receive">
                        </div>
+                        </div>
+                        <div class="del"> 
+                            <input type="submit"  class="del_me" value="Delete for me">
+                            <input type="submit"  class="del_ev" value="Delete for everyone">
                         </div>
                         <div class="card-footer">
                             <div class="input-group" >

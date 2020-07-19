@@ -17,6 +17,7 @@
     </head>
     <body class="sb-nav-fixed">
         <?php
+        session_start();
             include("../pagesfile/addfriend_topnav.php");
             include("../pagesfile/sidetop.php");
             include("../ActionPages/backend.php");
@@ -41,7 +42,7 @@
                     <h5><a href="#" class="profile-link"><?=$userdata['name']?></a></h5>
                     <p><?=$userdata['profession']?></p>
                     <input type="hidden" value="<?=$userdata['email']?>" name="mail1">
-                    <p class="text-muted"><?=on_off($userdata['email'])?></p>
+                  <!--  <p class="text-muted"><?=on_off($userdata['email'])?></p>-->
                   </div>
                   <div class="col-md-3 col-sm-3">
                     <?php

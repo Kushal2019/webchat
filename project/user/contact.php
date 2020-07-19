@@ -16,6 +16,7 @@
     </head>
     <body class="sb-nav-fixed">
         <?php
+        session_start();
             include("../pagesfile/contact_topnav.php");
             include("../pagesfile/sidetop.php");
             include("../ActionPages/backend.php");
@@ -40,7 +41,16 @@
                   <div class="col-md-7 col-sm-7">
                     <h5><a href="#" class="profile-link"><?=$userdata['name']?></a></h5>
                     <p><?=$userdata['profession']?></p>
-                    <p class="text-muted"><?=on_off($userdata['email'])?></p>
+                    <div id='<?=$userdata['id']?>'>
+                      <script>
+                        function re2()
+                        {
+                            online2('<?=$userdata['id']?>');
+                        }
+                       window.setInterval(re2, 100);
+                    </script>
+
+                     </div> 
                   </div>
                   <div class="col-md-3 col-sm-3">
                     <button class="btn btn-primary pull-right" onclick="targetmsg(<?=$userdata['id']?>)">Send Massage</button>

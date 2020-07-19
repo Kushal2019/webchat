@@ -21,6 +21,8 @@
 	{
 		$sql="insert into chat_with(user,friend,time,status)values('$email','$fri_email','$time','1')";
 		mysqli_query($con,$sql);
+		$sql="insert into chat_with(friend,user,time,status)values('$email','$fri_email','$time','1')";
+		mysqli_query($con,$sql);
 	}
 
 ?>

@@ -47,6 +47,7 @@
     </head>
     <body class="sb-nav-fixed" onload="check_up_ero(<?=$val?>)">
         <?php
+        session_start();
             include("../pagesfile/topnav.php");
             include("../pagesfile/sidetop.php");
         ?>

@@ -38,8 +38,12 @@
                             if($c['to_fri']!=$fri_email)
                             {
                           ?>
-
+                            <div class="del">
+                                
+                                     <input type="checkbox" >
+                                </div>
                             <div class="d-flex justify-content-start mb-4">
+                                 
                                 <div class="img_cont_msg">
                                     <img src="../upload/user_pic/<?=$fri_de['user_pic']?>" class="rounded-circle user_img_msg">
                                 </div>
@@ -53,8 +57,14 @@
                                 else
                                 {
                             ?>
+                             <div class="del">
+                                
+                                     <input type="checkbox" >
+                                </div>
                             <div class="d-flex justify-content-end mb-4">
+                               
                                 <div class="msg_cotainer_send">
+
                                      <?=$c['msg']?>
                                     <span class="msg_time_send"> <?=$c['time']?></span>
                                 </div>
@@ -63,7 +73,6 @@
                                 </div>
                             </div>
                             <?php
-
                             }
                              }
                          }

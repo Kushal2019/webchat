@@ -12,7 +12,7 @@ function targetmsg(id){
 
 	});
 }*/
-function refresh(val)
+function refresh(val) 
 {
 	//val="a1"
 	//val=document.getElementById("id").value;
@@ -91,7 +91,7 @@ function massage_recevied(val)
 		data:{id:val},
 		success:function(result)
 		{
-			//alert(result);
+		//	alert(result);
 			if(result==1)
 			{
 				
@@ -133,14 +133,44 @@ function online1(id)
 		success: function(result)
 		{ 
  			//alert(result);
- 			var a="'"+'#'+id+"'";
+ 		
+ 			//alert(a);
 			if(result=='1')
 			{
-			$('#online').html("<span class='online_icon'></span>");
+			// $('#online').html("<span class='online_icon'></span>");
+			document.getElementById(id).innerHTML="<span class='online_icon'></span>";
 			}
 			else
 			{
-			$('#online').html("<span class='online_icon offline'></span>");
+			
+			document.getElementById(id).innerHTML="<span class='online_icon offline'></span>";
+			}
+		}
+	});
+}
+function online2(id)
+{
+	var d = new Date();          
+    var n = d.toLocaleString([], { hour12: true});
+ 	cu_date=n.substring(0,9);
+	$.ajax({
+		url:"../user/online.php",
+		type:"post",
+		data:{id:id,cd:cu_date},
+		success: function(result)
+		{ 
+ 			//alert(result);
+ 		
+ 			//alert(a);
+			if(result=='1')
+			{
+			// $('#online').html("<span class='online_icon'></span>");
+			document.getElementById(id).innerHTML=" <p class='text-muted'>online</p>";
+			}
+			else
+			{
+			
+			document.getElementById(id).innerHTML="<p class='text-muted'>"+result+"</p>";
 			}
 		}
 	});

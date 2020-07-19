@@ -1,6 +1,6 @@
 <?php
 	include("../connect.php");
-	session_start();
+	//session_start();
 	function user_detalis($email)
 	{
 		global $con;
