@@ -37,6 +37,8 @@
                             {
                             if($c['to_fri']!=$fri_email)
                             {
+                                if($c['fri_status']==0)
+                                {
                           ?>
                             <div class="del">
                                 
@@ -48,31 +50,90 @@
                                     <img src="../upload/user_pic/<?=$fri_de['user_pic']?>" class="rounded-circle user_img_msg">
                                 </div>
                                 <div class="msg_cotainer">
-                                   <?=$c['msg']?>
-                                    <span class="msg_time">  <?=$c['time']?></span>
+                                  <span ondblclick="document.getElementById('<?=$c['msg']?>').style.display='block'">
+                                   <?php
+                                    if($c['fri_delete_me']==$email)
+                                    {
+                                        
+                                            echo "<i class='fa fa-trash'></i>".$c['delete_me_val'];
+                                    }
+                                    else
+                                    {
+                                        echo $c['msg'];
+                                    }
+                                  ?>
+                                       </span>
+                                    <span class="msg_time"><?=$c['time']?></span>
                                 </div>
                             </div>
+                            <div id="<?=$c['msg']?>" class="w3-modal" style="padding-top:230px;">
+                                <div class="w3-modal-content w3-animate-left" style="width:300px;">
+                                   <header class="w3-container w3-teal"> 
+                                   <!-- <span onclick="document.getElementById('<?=$c['msg']?>').style.display='none'"   class="w3-button w3-display-topright">&times;</span>-->
+                                    <h2>Delet Massage?</h2>
+                                    </header>
+                                    <div class="w3-container">
+                                        <p align="center" onclick="delete_me('<?=$c['id']?>','<?=$c['from_user']?>');">  Delete for me</p>
+                                        <p align="center" onclick="document.getElementById('<?=$c['msg']?>').style.display='none'">CANCEL</p>
+                                        </div>
+                                        <footer class="w3-container w3-teal">
+                                        </footer>
+                                    </div>
+                                </div>
+                         </div>
                             <?php
+                            }
                                 }
                                 else
                                 {
+                                     if($c['status']=='0')
+                                        {
                             ?>
-                             <div class="del">
-                                
-                                     <input type="checkbox" >
-                                </div>
-                            <div class="d-flex justify-content-end mb-4">
-                               
-                                <div class="msg_cotainer_send">
 
-                                     <?=$c['msg']?>
-                                    <span class="msg_time_send"> <?=$c['time']?></span>
-                                </div>
-                                <div class="img_cont_msg">
-                                    <img src="../upload/user_pic/<?=$user['user_pic']?>" class="rounded-circle user_img_msg">
-                                </div>
-                            </div>
+                                             <div class="del">
+                                                
+                                                     <input type="checkbox" >
+                                                </div>
+                                            <div class="d-flex justify-content-end mb-4">
+                                               
+                                                <div class="msg_cotainer_send">
+
+                                                     <span ondblclick="document.getElementById('<?=$c['msg']?>').style.display='block'"> 
+                                                        <?php
+                                                    if($c['delete_me']==$email)
+                                                    {
+                                                        echo "<i class='fa fa-trash'></i>".$c['delete_me_val'];
+                                                    }
+                                                    else
+                                                    {
+                                                        echo $c['msg'];
+                                                    }
+                                                  ?></span>
+                                                    <span class="msg_time_send"> <?=$c['time']?></span>
+                                                </div>
+                                                <div class="img_cont_msg">
+                                                    <img src="../upload/user_pic/<?=$user['user_pic']?>" class="rounded-circle user_img_msg">
+                                                </div>
+                                            </div>
+                                            <div id="<?=$c['msg']?>" class="w3-modal" style="padding-top:230px;">
+                                               <div class="w3-modal-content w3-animate-right" style="width:300px; ">
+                                                   <header class="w3-container w3-teal"> 
+                                                    <!--<span onclick="document.getElementById('<?=$c['msg']?>').style.display='none'"   class="w3-button w3-display-topright">&times;</span>-->
+                                                    <h2>Delete Massage?</h2>
+                                                    </header>
+                                                    <div class="w3-container">
+                                                        <p align="center" onclick="delete_me('<?=$c['id']?>','<?=$c['from_user']?>');">Delete for me</p>
+                                                        <p align="center" onclick="document.getElementById('<?=$c['msg']?>').style.display='none'">Cancel</p>
+                                                        <p align="center">Delete for everone</p>
+                                                        </div>
+                                                        <footer class="w3-container w3-teal">
+                                                            
+                                                        </footer>
+                                                    </div>
+                                                </div>
+                                         </div>
                             <?php
+                                        }
                             }
                              }
                          }

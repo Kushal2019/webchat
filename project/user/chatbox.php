@@ -11,6 +11,7 @@
         <link href="../css/chatbox.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
          <script src="../js/jsfile.js"></script>
+         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         
          <?php
           if(isset($_GET['id']))

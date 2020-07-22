@@ -1,4 +1,5 @@
 <?php 
+session_start(); 	
 	include('../connect.php');
 	include("UserallData.php");
 	$email=$_SESSION['email'];

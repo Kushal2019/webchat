@@ -133,7 +133,7 @@ function online1(id)
 		success: function(result)
 		{ 
  			//alert(result);
- 		
+ 		//alert(result);
  			//alert(a);
 			if(result=='1')
 			{
@@ -142,14 +142,13 @@ function online1(id)
 			}
 			else
 			{
-			
 			document.getElementById(id).innerHTML="<span class='online_icon offline'></span>";
 			}
 		}
 	});
 }
 function online2(id)
-{
+{ 
 	var d = new Date();          
     var n = d.toLocaleString([], { hour12: true});
  	cu_date=n.substring(0,9);
@@ -162,10 +161,10 @@ function online2(id)
  			//alert(result);
  		
  			//alert(a);
-			if(result=='1')
+			if(result==1)
 			{
 			// $('#online').html("<span class='online_icon'></span>");
-			document.getElementById(id).innerHTML=" <p class='text-muted'>online</p>";
+			document.getElementById(id).innerHTML="<p class='text-muted'>online</p>";
 			}
 			else
 			{
@@ -174,4 +173,17 @@ function online2(id)
 			}
 		}
 	});
+}
+function delete_me(id,mail)
+{
+	$.ajax({
+		url:"../ActionPages/delete_me.php",
+		type:"post",
+		data:"id="+id+"&mail="+mail,
+		success:function(result)
+		{
+			//alert(result);
+		}
+	});
+
 }

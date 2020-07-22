@@ -19,8 +19,7 @@
                    else
                     { a:
 
-                        $sql="select * from chat_with where user=
-                        '$email' ORDER BY time DESC LIMIT 1";
+                        $sql="select * from chat_with where user='$email' ORDER BY time DESC LIMIT 1";
                         $s=mysqli_query($con,$sql);
                         $data=mysqli_fetch_array($s);
                          $_SESSION['time2']=$data['time'];
@@ -56,9 +55,20 @@
                                     <?php
                                     if($d1['from_user']==$email)
                                     {
+                                     if($d1['delete_me']==$email)
+                                        {
+                                         
+
                                     ?>
-                                            <p>you:<?=$d1['msg']?></p>
+                                            <p>you:<?php echo "<i class='fa fa-trash'></i>".$d1['delete_me_val'];?></p>
                                     <?php
+                                         }
+                                         else
+                                         {
+                                    ?>
+                                                <p>you:<?=$d1['msg'];?></p>
+                                     <?php
+                                         }
                                     }
                                      else
                                      {
