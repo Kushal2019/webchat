@@ -138,11 +138,11 @@ function online1(id)
 			if(result=='1')
 			{
 			// $('#online').html("<span class='online_icon'></span>");
-			document.getElementById(id).innerHTML="<span class='online_icon'></span>";
+			//document.getElementById(id).innerHTML="<span class='online_icon'></span>";
 			}
 			else
 			{
-			document.getElementById(id).innerHTML="<span class='online_icon offline'></span>";
+			//document.getElementById(id).innerHTML="<span class='online_icon offline'></span>";
 			}
 		}
 	});

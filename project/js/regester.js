@@ -30,7 +30,7 @@ function check()
         document.getElementById("bt").setAttribute("onclick", "javascript:document.getElementById('inputLastName').focus();");
         document.getElementById("bt1").setAttribute("onclick", "javascript:document.getElementById('inputLastName').focus();");
         $("#myModal2").modal();
-        return false;
+        return false; 
     }
     else
     {

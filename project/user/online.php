@@ -12,8 +12,11 @@ else
 {
 	$date=substr($d['lasttime'],0,9);
 	$time=substr($d['lasttime'],10,20);
+	//echo "$date"."$cd";
+	//echo $time;
 	$date1=date_create($cd);
 	$date2=date_create($date);
+
 	$diff=date_diff($date1,$date2);
 	//echo $diff->format("%a");
 	 if($diff->format("%a")==0)

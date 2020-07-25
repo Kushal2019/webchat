@@ -30,7 +30,7 @@
                         {
                             $fri=fri_detalis($d['friend']);
                             $fri_e=$fri['email'];
-                             $sql="select  * from chat_data WHERE from_user in('$email','$fri_e') and to_fri in('$fri_e','$email') ORDER BY time DESC LIMIT 1";
+                             $sql="select  * from chat_data WHERE from_user in('$email','$fri_e') and to_fri in('$fri_e','$email') and status in('0') and fri_status in('0') ORDER BY time DESC LIMIT 1";
                                 $s1=mysqli_query($con,$sql);
                                 $d1=mysqli_fetch_array($s1);
 
@@ -57,8 +57,6 @@
                                     {
                                      if($d1['delete_me']==$email)
                                         {
-                                         
-
                                     ?>
                                             <p>you:<?php echo "<i class='fa fa-trash'></i>".$d1['delete_me_val'];?></p>
                                     <?php
@@ -72,9 +70,18 @@
                                     }
                                      else
                                      {
+                                        if($d1['fri_delete_me']==$email)
+                                        {
                                     ?>
-                                            <p><?=$d1['msg']?></p>
+                                         <p><?php echo "<i class='fa fa-trash'></i>".$d1['delete_me_val'];?></p>
+                                         <?php
+                                     }
+                                     else
+                                     {
+                                         ?>
+                                         <p><?=$d1['msg']?></p>
                                     <?php
+                                        }
                                         }
                                     ?>
                                 </div>

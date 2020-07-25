@@ -1,4 +1,4 @@
-  <script> function fullDateTime() {
+  <script> function fullDateTime() { 
             var d = new Date();          
             var n = d.toLocaleString([], { hour12: true});
             window.location='../logout.php?time='+n;
