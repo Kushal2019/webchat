@@ -3,6 +3,8 @@ include('../connect.php');
 $id=$_POST['id'];
 $cd=$_POST['cd'];
 $sql="select * from user_detalis,login_detais where login_detais.username=(select email user_detalis where user_detalis.id='$id')";
+if(mysqli_fetch_array(mysqli_query($con,$sql)))
+{
 $d=mysqli_fetch_array(mysqli_query($con,$sql));
 if($d['activelog']=='online')
 {
@@ -40,6 +42,11 @@ else
 	 	echo $date.$time;
 	 }
 
+}
+}
+else
+{
+	echo "2";
 }
 //$nameOfDay = date('D', strtotime($date));
 ?>

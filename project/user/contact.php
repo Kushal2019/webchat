@@ -17,6 +17,11 @@
     <body class="sb-nav-fixed">
         <?php
         session_start();
+  if(!isset($_SESSION['email']))
+    {
+  header('location:../new folder/index.php');
+    }
+       // session_start();
             include("../pagesfile/contact_topnav.php");
             include("../pagesfile/sidetop.php");
             include("../ActionPages/backend.php");

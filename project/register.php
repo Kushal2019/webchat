@@ -23,7 +23,7 @@ if(isset($_GET['msg']))
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
-        <script src="js/script.js"></script>
+        <script src="js/scripts.js"></script>
      <script src="js/regester.js"></script>
      <script>
       function checkmsg(str)

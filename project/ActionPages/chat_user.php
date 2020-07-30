@@ -25,7 +25,9 @@
                          $_SESSION['time2']=$data['time'];
 
                         $sql="select * FROM chat_with where user='$email' ORDER BY time DESC"; 
-                        $s=mysqli_query($con,$sql);
+                        if(mysqli_query($con,$sql))
+                        {
+                            $s=mysqli_query($con,$sql);
                         while ($d=mysqli_fetch_array($s)) 
                         {
                             $fri=fri_detalis($d['friend']);
@@ -44,8 +46,9 @@
                                             function re1()
                                             {
                                                 online1('<?=$fri['email']?>');
+                                               
                                             }
-                                           window.setInterval(re1, 100);
+                                          window.setInterval(re1, 100);
                                         </script>
                                     
                                     </div> 
@@ -89,5 +92,10 @@
                         </li>
                     <?php
                         }
+                    }
+                    else
+                    {
+                        echo "2";
+                    }
                 }
                     ?>

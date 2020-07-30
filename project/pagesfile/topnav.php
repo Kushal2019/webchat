@@ -3,9 +3,14 @@
             var n = d.toLocaleString([], { hour12: true});
             window.location='../logout.php?time='+n;
         }
-</script> 
+</script>   
+<?php
+//session_start();
+?>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-             <a class="navbar-brand" href="index.html">Start Bootstrap</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button
+             <a class="navbar-brand" href=""><?php include('../ActionPages/backend.php');
+             $data=fri_detalis($_SESSION['email']);
+             echo $data['name'];?></a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button
             ><!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <div class="input-group">

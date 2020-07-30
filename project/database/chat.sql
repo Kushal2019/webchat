@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2020 at 05:55 PM
+-- Generation Time: Jul 30, 2020 at 11:23 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.28
 
@@ -38,6 +38,7 @@ CREATE TABLE `chat_data` (
   `delete_me` varchar(255) NOT NULL,
   `fri_delete_me` varchar(255) NOT NULL,
   `delete_me_val` varchar(255) NOT NULL,
+  `fri_delete_val` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `fri_status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -46,16 +47,26 @@ CREATE TABLE `chat_data` (
 -- Dumping data for table `chat_data`
 --
 
-INSERT INTO `chat_data` (`id`, `from_user`, `to_fri`, `msg`, `time`, `date`, `delete_me`, `fri_delete_me`, `delete_me_val`, `status`, `fri_status`) VALUES
-(1, 'sona@gmail.com', 'babu@gmail.com', 'hkhsdf', ' 3:37:16 PM', '7/21/2020', '0', '0', '0', '0', ''),
-(2, 'babu@gmail.com', 'sona@gmail.com', 'jkhdakf', ' 3:38:22 PM', '7/21/2020', 'babu@gmail.com', '0', 'you deleted this massage', '0', ''),
-(3, 'sona@gmail.com', 'babu@gmail.com', ',madnakd', ' 4:05:00 PM', '7/21/2020', '0', 'babu@gmail.com', 'you deleted this massage', '0', '1'),
-(4, 'babu@gmail.com', 'sona@gmail.com', 'znmadnj', ' 4:05:22 PM', '7/21/2020', 'babu@gmail.com', '0', 'you deleted this massage', '1', '1'),
-(5, 'sona@gmail.com', 'babu@gmail.com', 'mdmba', ' 4:06:02 PM', '7/21/2020', '0', 'babu@gmail.com', 'you deleted this massage', '0', '1'),
-(6, 'babu@gmail.com', 'sona@gmail.com', 'bn ajhBD', ' 4:06:05 PM', '7/21/2020', 'babu@gmail.com', '0', 'you deleted this massage', '1', '1'),
-(7, 'babu@gmail.com', 'sona@gmail.com', 'nbXHJc', ' 4:06:07 PM', '7/21/2020', 'babu@gmail.com', '0', 'you deleted this massage', '1', '0'),
-(8, 'sona@gmail.com', 'babu@gmail.com', 'jhj', ' 9:12:11 PM', '7/22/2020', 'sona@gmail.com', '0', 'you deleted this massage', '0', '1'),
-(9, 'babu@gmail.com', 'sona@gmail.com', 'hvjbhjb', ' 9:13:06 PM', '7/22/2020', 'babu@gmail.com', '0', 'you deleted this massage', '1', '0');
+INSERT INTO `chat_data` (`id`, `from_user`, `to_fri`, `msg`, `time`, `date`, `delete_me`, `fri_delete_me`, `delete_me_val`, `fri_delete_val`, `status`, `fri_status`) VALUES
+(1, 'babu@gmail.com', 'sona@gmail.com', 'nkszn', ' 11:25:36 AM', '7/30/2020', '0', '0', '0', '0', '0', '1'),
+(2, 'babu@gmail.com', 'sona@gmail.com', 'nkdnsf', ' 11:26:53 AM', '7/30/2020', '0', '0', '0', '0', '0', '0'),
+(3, 'sona@gmail.com', 'babu@gmail.com', 'dnkfs', ' 11:26:58 AM', '7/30/2020', '0', '0', '0', '0', '0', '0'),
+(4, 'sona@gmail.com', 'surojitsamui007@gmail.com', ',smsmlks', ' 11:27:09 AM', '7/30/2020', '0', '0', '0', '0', '0', '0'),
+(5, 'babu@gmail.com', 'surojitsamui007@gmail.com', 'd,smlks', ' 11:27:14 AM', '7/30/2020', '0', '0', '0', '0', '0', '0'),
+(6, 'babu@gmail.com', 'sona@gmail.com', ',mdsks', ' 11:27:20 AM', '7/30/2020', 'babu@gmail.com', 'sona@gmail.com', 'you deleted this massage', 'you deleted this massage', '1', '1'),
+(7, 'babu@gmail.com', 'sona@gmail.com', 'dksks', ' 11:30:18 AM', '7/30/2020', '0', '0', '0', '0', '0', '0'),
+(8, 'sona@gmail.com', 'babu@gmail.com', ',mnk', ' 11:30:21 AM', '7/30/2020', 'sona@gmail.com', '0', 'you deleted this massage', '0', '0', '0'),
+(9, 'babu@gmail.com', 'sona@gmail.com', 'nbvjj', ' 11:37:07 AM', '7/30/2020', '0', '0', '0', '0', '0', '0'),
+(10, 'babu@gmail.com', 'sona@gmail.com', 'kmzlc', ' 11:39:59 AM', '7/30/2020', '0', '0', '0', '0', '0', '0'),
+(11, 'sona@gmail.com', 'babu@gmail.com', 'm,nksd', ' 11:40:02 AM', '7/30/2020', 'sona@gmail.com', 'babu@gmail.com', 'you deleted this massage', 'you deleted this massage', '1', '1'),
+(12, 'babu@gmail.com', 'sona@gmail.com', 'bvdha', ' 2:14:21 PM', '7/30/2020', '0', '0', '0', '0', '0', '0'),
+(13, 'babu@gmail.com', 'sona@gmail.com', 'vhasd', ' 2:14:22 PM', '7/30/2020', '0', 'sona@gmail.com', '0', 'you deleted this massage', '0', '0'),
+(14, 'sona@gmail.com', 'babu@gmail.com', 'nmbdmas', ' 2:14:24 PM', '7/30/2020', '0', '0', '0', '0', '0', '0'),
+(15, 'sona@gmail.com', 'surojitsamui007@gmail.com', 'anmdmas', ' 2:14:28 PM', '7/30/2020', '0', '0', '0', '0', '0', '0'),
+(16, 'babu@gmail.com', 'surojitsamui007@gmail.com', 'nmbdmsf', ' 2:14:33 PM', '7/30/2020', '0', '0', '0', '0', '0', '0'),
+(17, 'babu@gmail.com', 'sona@gmail.com', 'bdvdf', ' 2:14:38 PM', '7/30/2020', '0', '0', '0', '0', '0', '0'),
+(18, 'sona@gmail.com', 'surojitsamui007@gmail.com', 'hvhasd', ' 2:14:43 PM', '7/30/2020', 'sona@gmail.com', '0', 'you deleted this massage', '0', '0', '0'),
+(19, 'babu@gmail.com', 'sona@gmail.com', 'qwjmhjwehqjqe', ' 2:15:03 PM', '7/30/2020', '0', 'sona@gmail.com', '0', 'you deleted this massage', '0', '0');
 
 -- --------------------------------------------------------
 
@@ -76,10 +87,12 @@ CREATE TABLE `chat_with` (
 --
 
 INSERT INTO `chat_with` (`id`, `user`, `friend`, `status`, `time`) VALUES
-(1, 'babu@gmail.com', 'sona@gmail.com', '1', ' 9:13:06 PM'),
-(2, 'sona@gmail.com', 'babu@gmail.com', '1', ' 9:13:06 PM'),
-(3, 'babu@gmail.com', 'surojitsamui007@gmail.com', '1', ' 1:16:34 PM'),
-(4, 'surojitsamui007@gmail.com', 'babu@gmail.com', '1', ' 1:16:34 PM');
+(1, 'babu@gmail.com', 'surojitsamui007@gmail.com', '1', ' 2:14:33 PM'),
+(2, 'surojitsamui007@gmail.com', 'babu@gmail.com', '1', ' 2:14:33 PM'),
+(3, 'babu@gmail.com', 'sona@gmail.com', '1', ' 2:15:03 PM'),
+(4, 'sona@gmail.com', 'babu@gmail.com', '1', ' 2:15:03 PM'),
+(5, 'surojitsamui007@gmail.com', 'sona@gmail.com', '1', ' 2:14:43 PM'),
+(6, 'sona@gmail.com', 'surojitsamui007@gmail.com', '1', ' 2:14:43 PM');
 
 -- --------------------------------------------------------
 
@@ -99,10 +112,14 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`id`, `username`, `friend_email`, `status`) VALUES
-(1, 'babu@gmail.com', 'surojitsamui007@gmail.com', '1'),
-(2, 'babu@gmail.com', 'sona@gmail.com', '1'),
-(3, 'surojitsamui007@gmail.com', 'babu@gmail.com', '1'),
-(4, 'surojitsamui007@gmail.com', 'sona@gmail.com', '1');
+(1, 'babu@gmail.com', 'sona@gmail.com', '1'),
+(2, 'babu@gmail.com', 'surojitsamui007@gmail.com', '1'),
+(3, 'sona@gmail.com', 'babu@gmail.com', '1'),
+(4, 'surojitsamui007@gmail.com', 'soumendolui077@gmail.com', '1'),
+(5, 'surojitsamui007@gmail.com', 'sona@gmail.com', '1'),
+(6, 'surojitsamui007@gmail.com', 'babu@gmail.com', '1'),
+(7, 'sona@gmail.com', 'surojitsamui007@gmail.com', '1'),
+(8, 'sona@gmail.com', 'soumendolui077@gmail.com', '1');
 
 -- --------------------------------------------------------
 
@@ -127,9 +144,9 @@ CREATE TABLE `login_detais` (
 
 INSERT INTO `login_detais` (`id`, `username`, `password`, `type`, `status`, `activelog`, `fristtime`, `lasttime`) VALUES
 (2, 'soumendolui077@gmail.com', '123654', 'USER', '1', 'offline', '00.00', '7/5/2020, 4:01:17 PM'),
-(4, 'surojitsamui007@gmail.com', '1236541', 'USER', '1', 'offline', '00.00', '7/20/2020, 1:05:01 PM'),
-(5, 'babu@gmail.com', '123654', 'user', '1', 'online', '00', '7/21/2020, 4:07:29 PM'),
-(6, 'sona@gmail.com', '123654', 'user', '1', 'online', '00', '7/21/2020, 4:07:12 PM');
+(4, 'surojitsamui007@gmail.com', '1236541', 'USER', '1', 'offline', '00.00', '7/30/2020, 10:15:08 AM'),
+(5, 'babu@gmail.com', '123654', 'user', '1', 'offline', '00', '7/30/2020, 2:16:40 PM'),
+(6, 'sona@gmail.com', '123654', 'user', '1', 'online', '00', '');
 
 -- --------------------------------------------------------
 
@@ -202,19 +219,19 @@ ALTER TABLE `user_detalis`
 -- AUTO_INCREMENT for table `chat_data`
 --
 ALTER TABLE `chat_data`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `chat_with`
 --
 ALTER TABLE `chat_with`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `login_detais`

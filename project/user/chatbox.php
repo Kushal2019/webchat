@@ -14,6 +14,11 @@
          <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         
          <?php
+         session_start();
+  if(!isset($_SESSION['email']))
+    {
+  header('location:../new folder/index.php');
+    }
           if(isset($_GET['id']))
           {
             ?>
@@ -36,7 +41,7 @@
                  //user_chat();  
                 }
                 setTimeout( re,10 );
-              window.setInterval(on, 100);
+             window.setInterval(on, 100);
                window.setInterval(massage, 100);
 
               
@@ -87,7 +92,7 @@ function myFunction(id)
        
 
         <?php
-        session_start();
+        //session_start();
             include("../pagesfile/topnav.php");
             include("../pagesfile/sidetop.php");
         ?>

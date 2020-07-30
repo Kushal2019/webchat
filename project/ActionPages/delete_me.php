@@ -23,14 +23,14 @@ if($email==$mail)
 }
 else
 {
-	if($d['delete_me_val']!='0')
+	if($d['fri_delete_val']!='0')
 	{
 		$sql="update chat_data set fri_status='1' where id='$id'";
 		mysqli_query($con,$sql);
 	}
 	else
 	{
-	$sql="update chat_data set fri_delete_me='$email',delete_me_val='you deleted this massage' where id='$id'";
+	$sql="update chat_data set fri_delete_me='$email',fri_delete_val='you deleted this massage' where id='$id'";
 	mysqli_query($con,$sql);
 	}	
 }

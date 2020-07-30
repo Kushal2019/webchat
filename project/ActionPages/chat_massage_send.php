@@ -32,7 +32,9 @@
                                 // mysqli_query($con,$sql);
 
                             $sql="select * from chat_data where from_user in('$email','$fri_email') and to_fri in('$fri_email','$email')";
-                            $d=mysqli_query($con,$sql);
+                            if(mysqli_query($con,$sql))
+                            {
+                                $d=mysqli_query($con,$sql);
                             while($c=mysqli_fetch_array($d))
                             {
                             if($c['to_fri']!=$fri_email)
@@ -55,7 +57,7 @@
                                     if($c['fri_delete_me']==$email)
                                     {
                                         
-                                            echo "<i class='fa fa-trash'></i>".$c['delete_me_val'];
+                                            echo "<i class='fa fa-trash'></i>".$c['fri_delete_val'];
                                     }
                                     else
                                     {
@@ -137,6 +139,12 @@
                             }
                              }
                          }
+                     
+                     else
+                     {
+                        echo "1";
+                    }
+                }
                             ?>
 
                                 

@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+ session_start();
+  if(!isset($_SESSION['email']))
+    {
+  header('location:../new folder/index.php');
+    }
     $val="";
     if(isset($_GET['msg']))
     {
     $GLOBALS['val']=$_GET['msg'];
     }
+
 
 ?> 
     <head>
@@ -47,7 +53,7 @@
     </head>
     <body class="sb-nav-fixed" onload="check_up_ero(<?=$val?>)">
         <?php
-        session_start();
+       // session_start();
             include("../pagesfile/topnav.php");
             include("../pagesfile/sidetop.php");
         ?>

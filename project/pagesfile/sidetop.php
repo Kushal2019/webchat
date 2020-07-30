@@ -36,7 +36,7 @@ $data=user_detalis($_SESSION['email']);
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                       <?=$data['name']?>
                     </div>
                 </nav>
             </div>
