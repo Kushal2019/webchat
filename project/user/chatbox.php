@@ -41,7 +41,7 @@
                  //user_chat();  
                 }
                 setTimeout( re,10 );
-             window.setInterval(on, 100);
+             window.setInterval(on, 900);
                window.setInterval(massage, 100);
 
               
@@ -136,8 +136,24 @@ function myFunction(id)
                                     <li><i class="fas fa-user-circle"></i> View profile</li>
                                     <li><i class="fas fa-users"></i> Clear chat </li>
                                     <li><i class="fa fa-trash" aria-hidden="true"></i><samp onclick="delete_msg();"> Delete chat</samp> </li>
-                                    <li><i class="fas fa-ban"></i> Block friend</li>
-                                    <li><i class="fa fa-unlock"></i> Unblock friend</li>
+                                    <?php
+                                    $fri=fri_id($_GET['id']);
+                                    $fri_email=$fri['email'];
+                                    $sql1="select * from chat_with where user='$email' and friend='$fri_email'";
+                                    $b=mysqli_fetch_array(mysqli_query($con,$sql1));
+                                   if($b['status']=='1')
+                                   {
+                                    ?>
+                                    <li><i class="fas fa-ban"></i><span onclick="blockfri('<?=$_GET['id']?>',1);" id="bl"> Block friend</span></li>
+                                    <?php
+                                }
+                                else
+                                {
+                                 ?>
+                                    <li><i class="fa fa-unlock"></i> <span onclick="blockfri('<?=$_GET['id']?>',2);" id="un">Unblock friend </span></li>
+                                    <?php
+                                }
+                                    ?>
                                 </ul>
                             </div>
                          
@@ -149,16 +165,33 @@ function myFunction(id)
                             <input type="submit"  class="del_me" value="Delete for me">
                             <input type="submit"  class="del_ev" value="Delete for everyone">
                         </div>
+
                         <div class="card-footer">
+                             <?php
+                                    $fri=fri_id($_GET['id']);
+                                    $fri_email=$fri['email'];
+                                    $sql1="select * from chat_with where user='$email' and friend='$fri_email'";
+                                   // echo " $fri_email";
+                                     $d=mysqli_query($con,$sql1);
+                                     if(!mysqli_fetch_array($d))
+                                     {
+                                        goto a;
+                                     }
+                                     $b=mysqli_fetch_array(mysqli_query($con,$sql1));
+                                   if($b['status']=='1')
+                                   {
+                                    a:
+                                    ?>
                             <div class="input-group" >
                                 <div class="input-group-append">
                                     <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
                                 </div>
                                 <input type="text" name="" class="form-control type_msg" id="msg1" placeholder="Type your message..."></textarea>
-                                <div class="input-group-append">
+                                <div class="input-group-append" >
                                     <span class="input-group-text send_btn" onclick="massage_send('<?=$_GET['id']?>')"><i class="fas fa-location-arrow"></i></span>
                                 </div>
                             </div>
+                      <?php  }?>
                         </div>
                         <?php
                                 }
@@ -211,7 +244,7 @@ function myFunction(id)
         
     </script> 
        
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+         <script src="../js/ajax.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="../js/scripts.js"></script>
         <script src="../js/ppp.js"></script>

@@ -89,8 +89,8 @@ function massage_send(val)
 		type:"post",
 		data:"id="+val+"&msg="+msg+"&time="+time+"&date="+date,
 		success:function(result)
-		{
-			//alert("text area reset");
+		{	
+			//alert(result);
 			//$('#msg1').html("jsjsfajhfs");
 			document.getElementById('msg1').value="";
 		},
@@ -230,4 +230,20 @@ function delete_me(id,mail)
 		}
 	});
 
+}
+function blockfri(femail,id)
+{
+	//alert(femail);
+	//alert(id);
+	$.ajax({
+		url:"../ActionPages/block.php",
+		type:"post",
+		data:{fri:femail,id:id},
+		success:function(result)
+		{
+			targetmsg(femail);
+
+		}
+
+	});
 }

@@ -9,7 +9,18 @@
 	$time=$_POST['time'];
 	$date=$_POST['date'];
 	//echo $time;
-	$sql="insert into chat_data(from_user,to_fri,msg,time,date,delete_me,fri_delete_me,delete_me_val,fri_delete_val,status,fri_status)values('$email','$fri_email','$msg','$time','$date','0','0','0','0','0','0')";
+	$p='0';
+	$sql="select * from chat_with where user='$fri_email' and friend='$	email'";
+	$d=mysqli_query($con,$sql);
+	if($b=mysqli_fetch_array($d))
+	{
+		//print_r($b);
+		if($b['status']=='0')
+		{
+			$p='1';
+		}
+	}
+	$sql="insert into chat_data(from_user,to_fri,msg,time,date,delete_me,fri_delete_me,delete_me_val,fri_delete_val,status,fri_status)values('$email','$fri_email','$msg','$time','$date','0','0','0','0','0','$p')";
 	mysqli_query($con,$sql);
 	$sql="select * from chat_with where user='$email' and friend='$fri_email'";
 	if(mysqli_fetch_array(mysqli_query($con,$sql)))
