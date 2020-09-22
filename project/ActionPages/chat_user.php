@@ -13,6 +13,8 @@
                         }
                         else
                         {
+                            unset($_SESSION['time']);
+                            unset($_SESSION['time2']);
                             goto a;
                         }
                    }
@@ -56,6 +58,7 @@
                                 <div class="user_info" >
                                     <span ><?=$fri['name']?></span>
                                     <?php
+                                    
                                     if($d1['from_user']==$email)
                                     {
                                      if($d1['delete_me']==$email)
@@ -87,7 +90,7 @@
                                         }
                                         }
                                     ?>
-                                </div>
+                                 </div>
                             </div>
                         </li>
                     <?php

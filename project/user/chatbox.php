@@ -12,6 +12,25 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
          <script src="../js/jsfile.js"></script>
          <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+         <style>
+           #file-input {
+  cursor: pointer;
+  outline: none;
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  filter: alpha(opacity=0); /* IE < 9 */
+  opacity: 0;
+}
+.input-label {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+         </style>
         
          <?php
          session_start();
@@ -161,10 +180,7 @@ function myFunction(id)
                             <div id="msg_receive">
                        </div>
                         </div>
-                        <div class="del"> 
-                            <input type="submit"  class="del_me" value="Delete for me">
-                            <input type="submit"  class="del_ev" value="Delete for everyone">
-                        </div>
+                        
 
                         <div class="card-footer">
                              <?php
@@ -184,7 +200,8 @@ function myFunction(id)
                                     ?>
                             <div class="input-group" >
                                 <div class="input-group-append">
-                                    <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
+                                    <span class="input-group-text attach_btn"><label for="file-input" class="input-label"><i class="fas fa-paperclip"></i><input type="file" id="file-input" name="file">
+</label></span>
                                 </div>
                                 <input type="text" name="" class="form-control type_msg" id="msg1" placeholder="Type your message..."></textarea>
                                 <div class="input-group-append" >
@@ -236,18 +253,74 @@ function myFunction(id)
 <?php
 }
 ?>
+
+
 <script type="text/javascript"> 
-        window.addEventListener("beforeunload", function (e) { 
-            //alert('nm');
-            //e.preventDefault(); 
-        }); 
+        $("a").click(function() {
+        // creating input on-the-fly
+        var input = $(document.createElement("input"));
+        input.attr("type", "file");
+        // add onchange handler if you wish to get the file :)
+        input.trigger("click"); // opening dialog
+        return false; // avoiding navigation
+    });
         
     </script> 
+
        
          <script src="../js/ajax.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="../js/scripts.js"></script>
         <script src="../js/ppp.js"></script>
-       
+        <script>
+            $(document).ready(function(){
+             $(document).on('change', '#file-input', function(){
+             
+              var name = document.getElementById("file-input").files[0].name;
+              var form_data = new FormData();
+              var form_data2 = new FormData();
+              var ext = name.split('.').pop().toLowerCase();
+              if(jQuery.inArray(ext, ['png','jpg','jpeg']) == -1) 
+              {
+              // document.getElementById("msg1").innerHTML="Invalid Image File<br>(accept only: jpg,jpeg,png)";
+                // $("#myModal2").modal();
+                alert('1');
+              }
+              else
+              {
+                  //alert('2');
+                  var b=document.getElementById('file-input').files[0].tmp_name;
+                   //const  a=Object.values(b);
+                  //document.write(b);
+                  alert(b);
+                form_data.append("file", document.getElementById('file-input').files[0]);
+                form_data.append("file", document.getElementById('file-input').files[0].name);
+                //form_data.append("file",'dskdf');
+                  //var tmpname = document.getElementById("file-input").files[0].tmp_name;
+                  //alert(tmpname);
+               $.ajax({
+                url:"../ActionPages/sendacherment.php",
+                method:"post",
+                data:form_data,
+                contentType: false,
+                cache: false,
+                processData: false,
+                beforeSend:function(){
+                 //$('#uploadimg').html("Image Uploading.....<br><br><br>");
+                },   
+                success:function(data)
+                {
+                  alert('4');
+                  alert(data);
+                 //$('#uploadimg').html(data);
+                 
+                }
+               });
+              }
+
+          });
+         });
+        
+        </script>
     </body>
 </html>

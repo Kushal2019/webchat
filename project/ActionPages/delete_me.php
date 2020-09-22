@@ -13,7 +13,7 @@ if($email==$mail)
 	if($d['delete_me_val']!='0')
 	{
 		$sql="update chat_data set status='1' where id='$id'";
-		mysqli_query($con,$sql);
+		mysqli_query($con,$sql); 
 	}
 	else
 	{

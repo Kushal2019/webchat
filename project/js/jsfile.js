@@ -108,7 +108,7 @@ function massage_recevied(val)
 		type:"post",
 		data:{id:val},
 		success:function(result)
-		{
+		{ 
 
 		//	alert(result);
 			if(result==1)
@@ -227,6 +227,28 @@ function delete_me(id,mail)
 		error:function()
 		{
 			delete_me(id,mail);
+		}
+	});
+
+}
+function delete_ev(id,us_mail,fr_mail)
+{
+	//alert("njsd");
+	var d = new Date();          
+    var n = d.toLocaleString([], { hour12: true});
+  	var date=n.substring(0,9);
+ 	var time=n.substring(10,23);
+	$.ajax({
+		url:"../ActionPages/delete_ev.php",
+		type:"post",
+		data:"id="+id+"&usmail="+us_mail+"&frmail="+fr_mail+"&time="+time,
+		success:function(result)
+		{
+			//alert(result);
+		},
+		error:function()
+		{
+			delete_ev(id,us_mail,fr_mail,time);
 		}
 	});
 

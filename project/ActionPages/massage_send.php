@@ -3,7 +3,7 @@
 	session_start();
 	include('backend.php');
 	$id=$_POST['id'];
-	$fri_de=fri_id($id);
+	$fri_de=fri_id($id); 
 	$fri_email=$fri_de['email'];
 	$msg=$_POST['msg'];
 	$time=$_POST['time'];

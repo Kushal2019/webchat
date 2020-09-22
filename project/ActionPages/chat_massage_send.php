@@ -108,7 +108,7 @@
                                                     }
                                                     else
                                                     {
-                                                        echo $c['msg'];
+                                                        echo "<i class='fas fa-cloud-download-alt'></i>".$c['msg'];
                                                     }
                                                   ?></span>
                                                     <span class="msg_time_send"> <?=$c['time']?></span>
@@ -116,7 +116,7 @@
                                                 <div class="img_cont_msg">
                                                     <img src="../upload/user_pic/<?=$user['user_pic']?>" class="rounded-circle user_img_msg">
                                                 </div>
-                                            </div>
+                                            </div> 
                                             <div id="<?=$c['msg']?>" class="w3-modal" style="padding-top:230px;">
                                                <div class="w3-modal-content w3-animate-right" style="width:300px; ">
                                                    <header class="w3-container w3-teal"> 
@@ -126,7 +126,13 @@
                                                     <div class="w3-container">
                                                         <p align="center" onclick="delete_me('<?=$c['id']?>','<?=$c['from_user']?>');">Delete for me</p>
                                                         <p align="center" onclick="document.getElementById('<?=$c['msg']?>').style.display='none'">Cancel</p>
-                                                        <p align="center">Delete for everone</p>
+                                                        <?php
+                                                            if($c['delete_me_val']=='0')
+                                                            {
+                                                        ?>
+                                                        <p align="center" onclick="delete_ev('<?=$c['id']?>','<?=$c['from_user']?>','<?=$c['to_fri']?>');">Delete for everone</p>
+                                                        <?php
+                                                    }?>
                                                         </div>
                                                         <footer class="w3-container w3-teal">
                                                             
